@@ -1,19 +1,11 @@
 <div class="container-fluid"
     [ngStyle]="{'background-color': color}">
-    <h2 class="p-3">{{titulo}}</h2>
-    <div *ngIf="experiencia">
+    <h2 class="p-3">Experiencia</h2>
+    <div>
         <app-experiencia-item    
-        *ngFor="let exp of experiencias"
-        [exp] = "exp">    
+        *ngFor="let item of lista"
+        [item] = "item">    
         </app-experiencia-item>
-    </div>
-    <div *ngIf="educacion">
-        <app-experiencia-item    
-        *ngFor="let edu of educaciones"
-        [exp] = "edu">    
-        </app-experiencia-item>
-    </div>
-    
-    
+    </div>    
 </div>
 

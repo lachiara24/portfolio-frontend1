@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
@@ -8,7 +9,12 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 import { ExperienciaItemComponent } from './componentes/experiencia-item/experiencia-item.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
-import { EducacionItemComponent } from './componentes/educacion-item/educacion-item.component';
+
+const rutas: Routes = [
+  { path: '', component: PerfilComponent },
+  { path: 'educacion', component: EducacionComponent },
+  { path: 'experiencia', component: ExperienciaComponent}
+];
 
 @NgModule({
   declarations: [
@@ -18,11 +24,11 @@ import { EducacionItemComponent } from './componentes/educacion-item/educacion-i
     PerfilComponent,
     ExperienciaComponent,
     ExperienciaItemComponent,
-    EducacionComponent,
-    EducacionItemComponent
+    EducacionComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(rutas)
   ],
   providers: [],
   bootstrap: [AppComponent]

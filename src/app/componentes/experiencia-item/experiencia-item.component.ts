@@ -7,5 +7,5 @@ import { Experiencia } from '../Experiencia';
   styleUrls: ['./experiencia-item.component.css']
 })
 export class ExperienciaItemComponent {
-  @Input() exp: Experiencia;
+  @Input() item: Experiencia;
 }
