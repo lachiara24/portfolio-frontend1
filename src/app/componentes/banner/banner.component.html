@@ -1,13 +1,21 @@
-<div class="rounded-top text-white d-flex flex-row" style="height:200px;">
-    <img class="img-fluid" src="../../../assets/img/{{usuario.imgPortada}}" alt="">
+<div class="row portada"
+        [ngStyle]="{'background-image': 'url(../../../assets/img/' + usuario.imgPortada + ')'}">
     
-  </div>
-  <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-    <img src="../../../assets/img/{{usuario.imgPerfil}}"
-      alt="Generic placeholder image" class="img-fluid img-thumbnail mt-5 mb-2"
-      style="width: 150px; z-index: 1">
-  </div>
-  <div class="ms-3" style="margin-top: 130px;">
-    <h5>{{usuario.nombre + usuario.apellido}}</h5>
-    <p>{{usuario.titulo}}</p>
-  </div>      
+    <div class="col-3 perfil-foto">
+      <img src="../../../assets/img/{{usuario.imgPerfil}}"
+        alt="Imagen de perfil" 
+        class="img-fluid img-thumbnail rounded-circle">
+    </div>
+</div>
+
+  <div class="row mt-5">
+    <div class="col-3 infoPersonal">
+        <h4>{{usuario.nombre + ' ' + usuario.apellido}}</h4>
+        <p>{{usuario.titulo}}</p>
+    </div>
+    <div class="col-7" style="margin-left: 50px;">
+        <h3>Acerca de</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam nostrum cumque, mollitia omnis, officia nisi quod eum,
+             voluptate natus doloribus perspiciatis ab! Vel accusantium eligendi maiores ullam. Veniam, est esse?</p>
+    </div>    
+  </div>   

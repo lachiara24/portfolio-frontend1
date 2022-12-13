@@ -1,0 +1,21 @@
+.portada {
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:400px;
+}
+
+
+.perfil-foto {
+    margin-left: 50px;
+    margin-top: 300px;
+    width: 200px; 
+    z-index: 1
+}
+
+.infoPersonal {
+    margin-left: 50px;
+    margin-top: 60px;
+    width: 200px;
+    text-align: center;
+}
