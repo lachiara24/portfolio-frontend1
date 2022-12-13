@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Usuario } from '../Usuario';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-banner',
@@ -10,5 +11,5 @@ export class BannerComponent {
   @Input() usuario: Usuario = {
     nombre: '', apellido: '', titulo: '', imgPerfil: '', imgPortada: ''
   };
-  
+  faPenToSquare = faPenToSquare;
 }

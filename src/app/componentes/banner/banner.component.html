@@ -1,10 +1,14 @@
 <div class="row portada"
         [ngStyle]="{'background-image': 'url(../../../assets/img/' + usuario.imgPortada + ')'}">
     
-    <div class="col-3 perfil-foto">
-      <img src="../../../assets/img/{{usuario.imgPerfil}}"
+    <div class="col-3 perfil-foto" style="position: relative;">
+        <img src="../../../assets/img/{{usuario.imgPerfil}}"
         alt="Imagen de perfil" 
         class="img-fluid img-thumbnail rounded-circle">
+      <div class="img-thumbnail rounded-circle text-center" style="position: absolute; left: 50px; bottom: 35px; height: 100px; width: 100px; background-color: #495579;">
+        <fa-icon class="white-icon" style=" position: absolute; right:22px; top:22px" [icon]="faPenToSquare" size="3x"></fa-icon>
+      </div>
+      
     </div>
 </div>
 <hr>
@@ -14,7 +18,9 @@
         <p>{{usuario.titulo}}</p>
     </div>
     <div class="col-7" style="margin-left: 50px;">
-        <h3>Acerca de</h3>
+        <h3 class="d-flex justify-content-between">Acerca de
+          <fa-icon class="p-2" [icon]="faPenToSquare"></fa-icon>
+        </h3>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam nostrum cumque, mollitia omnis, officia nisi quod eum,
              voluptate natus doloribus perspiciatis ab! Vel accusantium eligendi maiores ullam. Veniam, est esse?
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam animi ratione error, quae architecto possimus 

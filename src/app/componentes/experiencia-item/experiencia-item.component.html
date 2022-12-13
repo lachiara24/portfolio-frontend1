@@ -10,7 +10,12 @@
             </div>                    
         </div>
         <div class="col">
-            <h4>{{item.nombre}}</h4>
+            <h4 class="d-flex justify-content-between">{{item.nombre}}
+                <div>
+                    <fa-icon class="p-2" [icon]="faPenToSquare"></fa-icon>
+                    <fa-icon class="p-2" [icon]="faWindowClose"></fa-icon>
+                </div>                
+            </h4>
             <h5>{{item.lugar}}</h5>
             <p class="text-muted">{{item.tiempo}}</p>
         </div>  

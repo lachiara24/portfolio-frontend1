@@ -9,6 +9,7 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 import { ExperienciaItemComponent } from './componentes/experiencia-item/experiencia-item.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const rutas: Routes = [
   { path: '', component: PerfilComponent },
@@ -28,7 +29,8 @@ const rutas: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(rutas)
+    RouterModule.forRoot(rutas),
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Experiencia } from '../Experiencia';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-experiencia-item',
@@ -8,4 +10,6 @@ import { Experiencia } from '../Experiencia';
 })
 export class ExperienciaItemComponent {
   @Input() item: Experiencia;
+  faPenToSquare = faPenToSquare;
+  faWindowClose = faWindowClose;
 }
