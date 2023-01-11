@@ -10,6 +10,8 @@ import { ExperienciaComponent } from './componentes/experiencia/experiencia.comp
 import { ExperienciaItemComponent } from './componentes/experiencia-item/experiencia-item.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProyectoItemComponent } from './componentes/proyecto-item/proyecto-item.component';
+import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
 
 const rutas: Routes = [
   { path: '', component: PerfilComponent },
@@ -25,7 +27,9 @@ const rutas: Routes = [
     PerfilComponent,
     ExperienciaComponent,
     ExperienciaItemComponent,
-    EducacionComponent
+    EducacionComponent,
+    ProyectoItemComponent,
+    ProyectoComponent
   ],
   imports: [
     BrowserModule,

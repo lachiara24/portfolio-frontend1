@@ -1,6 +1,8 @@
 <div class="container-fluid"
     [ngStyle]="{'background-color': color}">
-    <h2 class="p-3">Experiencia</h2>
+    <h2 class="p-3">Experiencia
+        <fa-icon class="icono p-2" [icon]="faPlus"></fa-icon>
+    </h2>
     <div>
         <app-experiencia-item    
         *ngFor="let item of lista"

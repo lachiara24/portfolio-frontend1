@@ -10,7 +10,8 @@
     margin-left: 50px;
     margin-top: 300px;
     width: 200px; 
-    z-index: 1
+    z-index: 1;
+    position: relative;
 }
 
 .infoPersonal {
@@ -22,4 +23,46 @@
 
 .white-icon{
     color: #FFFBEB;
+}
+
+.contenedor{
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+
+.foto{
+    width: 200px;
+    border-radius: 100%;
+}
+
+.info{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.nombre{
+    padding: 70px;
+    padding-top: 120px;
+}
+
+.acerca{
+    padding-top: 50px;
+    padding-right: 50px;
+}
+
+.acerca h3{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.editar-foto{
+    border-radius: 100%;
+    position: absolute; 
+    left: 50px; 
+    bottom: 45px; 
+    height: 100px; 
+    width: 100px; 
+    background-color: #495579;
 }

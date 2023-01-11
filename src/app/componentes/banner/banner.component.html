@@ -1,4 +1,4 @@
-<div class="row portada"
+<!-- <div class="row portada"
         [ngStyle]="{'background-image': 'url(../../../assets/img/' + usuario.imgPortada + ')'}">
     
     <div class="col-3 perfil-foto" style="position: relative;">
@@ -26,4 +26,34 @@
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam animi ratione error, quae architecto possimus 
             atque dignissimos consectetur ea natus non voluptate voluptas ducimus vero libero nam blanditiis unde esse.</p>
     </div>    
-  </div>   
+  </div>    -->
+
+  <div class="contenedor">
+    <div class="portada"
+    [ngStyle]="{'background-image': 'url(../../../assets/img/' + usuario.imgPortada + ')'}">
+    <div class="perfil-foto">
+      <img src="../../../assets/img/{{usuario.imgPerfil}}"
+        alt="Imagen de perfil" 
+        class="foto">
+        <div class="editar-foto">
+        <fa-icon class="white-icon" style=" position: absolute; right:22px; top:22px" [icon]="faPenToSquare" size="3x"></fa-icon>
+      </div>
+    </div>    
+    </div> 
+
+    <div class="info">
+      <div class="nombre">
+        <h4>{{usuario.nombre + ' ' + usuario.apellido}}</h4>
+        <p>{{usuario.titulo}}</p>
+      </div>
+      <div class="acerca">
+        <h3>Acerca de
+          <fa-icon class="" [icon]="faPenToSquare"></fa-icon>
+        </h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam nostrum cumque, mollitia omnis, officia nisi quod eum,
+             voluptate natus doloribus perspiciatis ab! Vel accusantium eligendi maiores ullam. Veniam, est esse?
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam animi ratione error, quae architecto possimus 
+            atque dignissimos consectetur ea natus non voluptate voluptas ducimus vero libero nam blanditiis unde esse.</p>
+      </div>    
+    </div>
+  </div>
