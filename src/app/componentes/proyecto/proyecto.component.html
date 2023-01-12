@@ -1,10 +1,11 @@
 <h2 class="p-3">Proyectos
-    <fa-icon class="icono p-2" [icon]="faPlus"></fa-icon>
+    <fa-icon class="icono p-2" routerLink="/proyecto" [icon]="faPlus"></fa-icon>
 </h2>
 <div class="contenedor">
-<div *ngFor="let p of proyectos">
+<div *ngFor="let p of proyecto">
     
     <app-proyecto-item
+    (onDeleteItem)="delete(p)"
     [proyecto]="p">
 
     </app-proyecto-item>

@@ -1,12 +1,13 @@
 <div class="container-fluid"
     [ngStyle]="{'background-color': color}">
     <h2 class="p-3">Educación
-        <fa-icon class="icono p-2" [icon]="faPlus"></fa-icon>
+        <fa-icon class="icono p-2" routerLink="/educacion" [icon]="faPlus"></fa-icon>
     </h2>
     <div>
-        <app-experiencia-item    
-        *ngFor="let item of lista"
-        [item] = "item">    
-        </app-experiencia-item>
+        <app-educacion-item    
+        *ngFor="let item of educacion"
+        [item] = "item"
+        (onDeleteItem)="delete(item)">    
+        </app-educacion-item>
     </div>    
 </div>

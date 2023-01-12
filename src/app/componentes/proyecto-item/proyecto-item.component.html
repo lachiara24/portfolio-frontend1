@@ -1,5 +1,10 @@
 <div class="card">
-    <h2>{{proyecto.titulo}}</h2>
+    <h2>{{proyecto.nombre}}
+        <div>
+            <fa-icon class="icono p-2" [icon]="faPenToSquare" routerLink="/proyecto/{{proyecto.id}}"></fa-icon>
+            <fa-icon class="icono p-2" [icon]="faWindowClose" (click)="onDelete(proyecto)"></fa-icon>
+        </div>
+    </h2>        
     <p>{{proyecto.descripcion}}</p>
     <a href={{proyecto.link}}>Link git hub</a>
 </div>

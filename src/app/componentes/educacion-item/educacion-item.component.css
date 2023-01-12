@@ -1,0 +1,23 @@
+.contenedor{
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+fa-icon{
+    cursor: pointer;
+}
+
+.imagen{
+    width: 150px; 
+    margin-left: 50px;
+}
+
+.info h4{
+    display: flex;
+    justify-content: space-between;
+}
+
+.foto{
+    width: 64;
+    height: 64;
+}

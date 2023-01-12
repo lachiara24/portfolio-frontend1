@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Usuario } from '../Usuario';
+import { Usuario } from '../../models/Usuario';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
