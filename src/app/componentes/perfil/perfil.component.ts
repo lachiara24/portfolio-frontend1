@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../models/Usuario';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-perfil',
@@ -11,4 +12,10 @@ export class PerfilComponent {
     nombre: "Ludmila", apellido: "Chiara", 
     titulo: "Full Stack Developer Jr.", imgPerfil: "gato.webp", imgPortada: "margaritas.jpg"
   }
+
+  nombre: any;
+
+  constructor(private userService: UsersService){}
+
+  
 }

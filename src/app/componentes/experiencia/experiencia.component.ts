@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Experiencia } from '../../models/Experiencia';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -14,7 +15,8 @@ export class ExperienciaComponent {
   
   personaId: number = 1;
 
-  constructor(private experienciaService: ExperienciaService) { }
+  constructor(private experienciaService: ExperienciaService,
+    public usersService: UsersService) { }
 
   ngOnInit(): void {
     this.retrieveExperiencias();
