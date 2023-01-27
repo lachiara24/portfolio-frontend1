@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LoginUsuario } from 'src/app/models/login-usuario';
 import { TokenService } from 'src/app/services/token.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
   selector: 'app-login',
@@ -37,13 +38,14 @@ export class LoginComponent implements OnInit {
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
     console.log(this.loginUsuario);
     this.authService.login(this.loginUsuario).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.isLogged = true;
       this.isLoginFailed = false;
       this.tokenService.setToken(data.accessToken);
       this.tokenService.setUserName(data.userName);
       this.tokenService.setAuthorities(data.authorities);
       this.roles = data.authorities;
+      this.tokenService.setPersonaId(data.id);
       this.router.navigate(['']);
     })
   }

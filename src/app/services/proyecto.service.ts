@@ -16,16 +16,16 @@ export class ProyectoService {
     return this.http.get<Proyecto[]>(`${baseUrl}/${personaId}/proyecto`);
   }
 
-  get(personaId: any, id: any): Observable<Proyecto> {
-    return this.http.get(`${baseUrl}/${personaId}/proyecto/${id}`);
+  get(id: any): Observable<Proyecto> {
+    return this.http.get(`${baseUrl}/proyecto/${id}`);
   }
 
   create(personaId: any, data: any): Observable<any> {
     return this.http.post(`${baseUrl}/${personaId}/proyecto`, data);
   }
 
-  update(personaId: any, id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}/${personaId}/proyecto/${id}`, data);
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${baseUrl}/proyecto/${id}`, data);
   }
 
   delete(personaId: any, id: any): Observable<any> {

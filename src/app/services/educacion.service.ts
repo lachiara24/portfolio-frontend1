@@ -20,16 +20,16 @@ export class EducacionService {
     return this.http.get<Educacion[]>(`${baseUrl}/${personaId}/educacion`);
   }
 
-  get(personaId: any, id: any): Observable<Educacion> {
-    return this.http.get(`${baseUrl}/${personaId}/educacion/${id}`);
+  get(id: any): Observable<Educacion> {
+    return this.http.get(`${baseUrl}/educacion/${id}`);
   }
 
   create(personaId: any, data: any): Observable<any> {
     return this.http.post(`${baseUrl}/${personaId}/educacion`, data);
   }
 
-  update(personaId: any, id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}/${personaId}/educacion/${id}`, data);
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${baseUrl}/educacion/${id}`, data);
   }
 
   delete(personaId: any, id: any): Observable<any> {

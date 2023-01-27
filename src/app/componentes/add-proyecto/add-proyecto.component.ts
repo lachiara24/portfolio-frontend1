@@ -31,15 +31,16 @@ export class AddProyectoComponent implements OnInit {
         link: '',
       }
     );
+    this.personaId = this.route.snapshot.params["personaId"];
     this.id = this.route.snapshot.params["id"];
-    if (this.id) {
+    if (this.id != undefined) {
       this.getProyecto(this.id);   
       this.addMode = false;
     }
   }
 
   getProyecto(id: string): void {
-    this.proyectoService.get(this.personaId, id)
+    this.proyectoService.get(id)
       .subscribe({
         next: (data) => {
           this.currentProyecto = data;
@@ -73,7 +74,7 @@ export class AddProyectoComponent implements OnInit {
 
   update(){
     console.log(JSON.stringify(this.form.value, null, 2));
-    this.proyectoService.update(this.personaId,this.id,this.form.value)
+    this.proyectoService.update(this.id,this.form.value)
       .subscribe({
         next: (res) => {
           console.log(res);

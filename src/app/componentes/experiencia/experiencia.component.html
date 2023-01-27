@@ -1,7 +1,7 @@
 <div class="container-fluid"
     [ngStyle]="{'background-color': color}">
     <h2 class="p-3">Experiencia
-        <fa-icon routerLink="/experiencia" *ngIf="isLogged" class="icono p-2" [icon]="faPlus"></fa-icon>
+        <fa-icon routerLink="/experiencia/{{personaId}}/add" *ngIf="isLogged" class="icono p-2" [icon]="faPlus"></fa-icon>
     </h2>
     <div>
         <app-experiencia-item    

@@ -4,6 +4,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { UsersService } from 'src/app/services/users.service';
 import { TokenService } from 'src/app/services/token.service';
+import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -11,20 +12,21 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./experiencia.component.css']
 })
 export class ExperienciaComponent {
-
   isLogged: boolean = false;
+  
   experiencia?: Experiencia[];
   
-  personaId: number = 1;
+  personaId: string = '1';
 
   constructor(private experienciaService: ExperienciaService,
     private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    this.retrieveExperiencias();
     if(this.tokenService.getToken()){
       this.isLogged = true;
-    }
+      this.personaId = this.tokenService.getPersonaId();
+    }      
+    this.retrieveExperiencias(); 
   }
 
   retrieveExperiencias(): void {
@@ -32,7 +34,7 @@ export class ExperienciaComponent {
       .subscribe({
         next: (data) => {
           this.experiencia = data;
-          console.log(data);
+          // console.log(data);
         },
         error: (e) => console.error(e)
       });

@@ -32,8 +32,11 @@ export class AddEducacionComponent implements OnInit{
         fechaFin: ''
       }
     );  
+    this.personaId = this.route.snapshot.params["personaId"];
+    console.log(this.personaId);
     this.id = this.route.snapshot.params["id"];
-    if (this.id) {
+    console.log(this.id);
+    if (this.id != undefined) {
       this.getEducacion(this.id);   
       this.addMode = false;
     }
@@ -41,7 +44,7 @@ export class AddEducacionComponent implements OnInit{
   }
 
   getEducacion(id: string): void {
-    this.educacionService.get(this.personaId, id)
+    this.educacionService.get(id)
       .subscribe({
         next: (data) => {
           this.currentEducacion = data;
@@ -76,7 +79,7 @@ export class AddEducacionComponent implements OnInit{
 
   update(){
     console.log(JSON.stringify(this.form.value, null, 2));
-    this.educacionService.update(this.personaId,this.id,this.form.value)
+    this.educacionService.update(this.id,this.form.value)
       .subscribe({
         next: (res) => {
           console.log(res);

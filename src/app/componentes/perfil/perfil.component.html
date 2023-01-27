@@ -1,3 +1,49 @@
-<app-banner
-    [usuario]="usuario">
-</app-banner>
+<div class="submit-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input
+          type="text"
+          formControlName="nombre"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['nombre'].errors }"
+        />
+        <div *ngIf="submitted && f['nombre'].errors" class="invalid-feedback">
+          <div *ngIf="f['nombre'].errors['required']">Este campo es obligatorio</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Profesion</label>
+        <input
+          type="text"
+          formControlName="profesion"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['profesion'].errors }"
+        />
+        <div *ngIf="submitted && f['profesion'].errors" class="invalid-feedback">
+          <div *ngIf="f['profesion'].errors['required']">Este campo es obligatorio</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Acerca de mi</label>
+        <input
+          type="text"
+          formControlName="info"
+          class="form-control"
+        />
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button
+          type="button"
+          (click)="onReset()"
+          class="btn btn-warning float-right"
+        >
+          Resetear
+        </button>
+      </div>
+    </form>
+  </div>

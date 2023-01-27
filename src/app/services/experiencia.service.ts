@@ -16,16 +16,16 @@ export class ExperienciaService {
     return this.http.get<Experiencia[]>(`${baseUrl}/${personaId}/experiencia`);
   }
 
-  get(personaId: any, id: any): Observable<Experiencia> {
-    return this.http.get(`${baseUrl}/${personaId}/experiencia/${id}`);
+  get(id: any): Observable<Experiencia> {
+    return this.http.get(`${baseUrl}/experiencia/${id}`);
   }
 
   create(personaId: any, data: any): Observable<any> {
     return this.http.post(`${baseUrl}/${personaId}/experiencia`, data);
   }
 
-  update(personaId: any, id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}/${personaId}/experiencia/${id}`, data);
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${baseUrl}/experiencia/${id}`, data);
   }
 
   delete(personaId: any, id: any): Observable<any> {

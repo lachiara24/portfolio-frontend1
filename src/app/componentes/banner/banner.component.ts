@@ -8,8 +8,8 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent {
-  @Input() usuario: Usuario = {
-    nombre: '', apellido: '', titulo: '', imgPerfil: '', imgPortada: ''
-  };
+  @Input() usuario: Usuario;
+  @Input() isLogged: boolean = false;
   faPenToSquare = faPenToSquare;
+
 }

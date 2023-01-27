@@ -1,40 +1,57 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../../models/Usuario';
-import { TokenService } from 'src/app/services/token.service';
-import { PersonaService } from 'src/app/services/persona.service';
-import { Persona } from 'src/app/models/Persona';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.css']
 })
-export class PerfilComponent implements OnInit {
-  isLogged: boolean = false;
-  
-  usuario: Usuario = {
-    nombre: "Ludmila", apellido: "Chiara", 
-    titulo: "Full Stack Developer Jr.", imgPerfil: "gato.webp", imgPortada: "margaritas.jpg"
+export class PerfilComponent implements OnInit{
+  form: FormGroup;
+  submitted = false;
+
+  constructor(private fb: FormBuilder){}
+
+  ngOnInit() {
+    this.form = this.fb.group(
+      {
+        nombre: ['', Validators.required],
+        profesion: ['', Validators.required],
+        info: '',
+      }
+    );
   }
 
-  persona: Persona;
+  get f(): { [key: string]: AbstractControl } {
+    return this.form.controls;
+  }
 
-  nombre: any;
+  onSubmit(){
+    this.submitted = true;
 
-  constructor(private tokenService: TokenService,
-    private personaService: PersonaService){}
-
-  ngOnInit(): void {
-    if(this.tokenService.getToken()){
-      this.isLogged = true;
-      this.usuario.nombre = this.tokenService.getUsername();
-      this.personaService.getPersona().subscribe((data:any) => {
-        this.persona = data;
-        console.log(this.persona);
-        this.usuario.nombre = this.persona.nombre;
-        this.usuario.titulo = this.persona.profesion;
-      });
+    if (this.form.invalid) {
+      return;
     }
+
+    this.update();
   }
-  
+
+  update(){
+    console.log(JSON.stringify(this.form.value, null, 2));
+    // this.proyectoService.update(this.id,this.form.value)
+    //   .subscribe({
+    //     next: (res) => {
+    //       console.log(res);
+    //       this.submitted = true;
+    //       this.router.navigate(['/']);
+    //     },
+    //     error: (e) => console.error(e)
+    //   });
+  }
+
+  onReset(): void {
+    this.submitted = false;
+    this.form.reset();
+  }
 }

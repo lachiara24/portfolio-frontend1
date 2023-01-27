@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+import { TokenService } from 'src/app/services/token.service';
 import { UsersService } from 'src/app/services/users.service';
+import { AuthService } from 'src/app/services/auth.service';
+import {NuevoUsuario } from 'src/app/models/nuevo-usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,10 +11,13 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  email: string;
+  nombreUsuario: string;
   password: string;
   confirmPassword: string;
 
+  constructor(private authService: AuthService,
+    private router: Router){
+  }
   // constructor(private userService: UsersService) {}
 
   // register() {
@@ -19,4 +26,14 @@ export class RegisterComponent {
   //     this.userService.setToken(data.accessToken);
   //   });
   // }
+
+  nuevoUsuario: NuevoUsuario;
+
+  register() {
+    this.nuevoUsuario = new NuevoUsuario(this.nombreUsuario, this.password);
+    this.authService.newUser(this.nuevoUsuario).subscribe(data => {
+      console.log(data);
+      this.router.navigate(['']);
+    })
+  }
 }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 const TOKEN_KEY= 'accessToken';
 const USERNAME_KEY= 'userName';
 const AUTHORITIES_KEY= 'authorities';
+const ID_KEY= 'id';
 
 
 @Injectable({
@@ -30,6 +31,15 @@ export class TokenService {
 
   public getUsername():any {
     return sessionStorage.getItem(USERNAME_KEY);
+  }
+
+  public setPersonaId(personaId: any): void {
+    window.sessionStorage.removeItem(ID_KEY);
+    window.sessionStorage.setItem(ID_KEY, personaId);
+  }
+
+  public getPersonaId():any {
+    return window.sessionStorage.getItem(ID_KEY);
   }
 
   public setAuthorities(authorities:string[]): void {

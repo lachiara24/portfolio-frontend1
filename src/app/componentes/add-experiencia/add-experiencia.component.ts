@@ -32,15 +32,16 @@ export class AddExperienciaComponent implements OnInit {
         fechaFin: '',
       }
     );
+    this.personaId = this.route.snapshot.params["personaId"];
     this.id = this.route.snapshot.params["id"];
-    if (this.id) {
+    if (this.id != undefined) {
       this.getExperiencia(this.id);   
       this.addMode = false;
     }
   }
 
   getExperiencia(id: string): void {
-    this.experienciaService.get(this.personaId, id)
+    this.experienciaService.get(id)
       .subscribe({
         next: (data) => {
           this.currentExperiencia = data;
@@ -76,7 +77,7 @@ export class AddExperienciaComponent implements OnInit {
 
   update(){
     console.log(JSON.stringify(this.form.value, null, 2));
-    this.experienciaService.update(this.personaId,this.id,this.form.value)
+    this.experienciaService.update(this.id,this.form.value)
       .subscribe({
         next: (res) => {
           console.log(res);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Proyecto } from '../../models/Proyecto';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ProyectoService } from 'src/app/services/proyecto.service';
@@ -11,22 +11,21 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./proyecto.component.css']
 })
 export class ProyectoComponent implements OnInit {
+  isLogged: boolean = false;
+  personaId: string = '1';
   faPlus = faPlus;
   proyecto: Proyecto[];
-  personaId: number = 1;
 
   constructor(private proyectoService: ProyectoService,
-    private router: Router,
     private tokenService: TokenService) { }
 
-
-  isLogged: boolean = false;
   
   ngOnInit(): void {
-    this.retrieveProyectos();
     if(this.tokenService.getToken()){
       this.isLogged = true;
-    }
+      this.personaId = this.tokenService.getPersonaId();
+    }   
+    this.retrieveProyectos();
   }
 
   retrieveProyectos(): void {
@@ -34,7 +33,7 @@ export class ProyectoComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.proyecto = data;
-          console.log(data);
+          // console.log(data);
         },
         error: (e) => console.error(e)
       });

@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { BannerComponent } from './componentes/banner/banner.component';
-import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 import { ExperienciaItemComponent } from './componentes/experiencia-item/experiencia-item.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
@@ -19,25 +18,26 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddEducacionComponent } from './componentes/add-educacion/add-educacion.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddExperienciaComponent } from './componentes/add-experiencia/add-experiencia.component';
-import { EditEducacionComponent } from './componentes/edit-educacion/edit-educacion.component';
 import { AddProyectoComponent } from './componentes/add-proyecto/add-proyecto.component';
 import { DdMmYYYYDatePipe } from './pipes/dd-mm-yyyy-date.pipe';
 import { LoginComponent } from './componentes/login/login.component';
 import { RegisterComponent } from './componentes/register/register.component';
 import { GlobalHttpInterceptorService } from './services/global-http-interceptor.service';
 import { UsersService } from './services/users.service';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { interceptorProvider } from './services/interceptor-service';
 
 const rutas: Routes = [
   { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent, pathMatch: "full" },
   { path: 'register', component: RegisterComponent, pathMatch: "full" },
-  { path: 'educacion', component: AddEducacionComponent},
+  { path: 'educacion/:personaId/add', component: AddEducacionComponent},
   { path: 'educacion/:id', component: AddEducacionComponent},
-  { path: 'experiencia', component: AddExperienciaComponent},
+  { path: 'experiencia/:personaId/add', component: AddExperienciaComponent},
   { path: 'experiencia/:id', component: AddExperienciaComponent},
-  { path: 'proyecto', component: AddProyectoComponent},
-  { path: 'proyecto/:id', component: AddProyectoComponent}
+  { path: 'proyecto/:personaId/add', component: AddProyectoComponent},
+  { path: 'proyecto/:id', component: AddProyectoComponent},
+  { path: 'perfil', component: PerfilComponent}
 ];
 
 @NgModule({
@@ -45,7 +45,6 @@ const rutas: Routes = [
     AppComponent,
     HeaderComponent,
     BannerComponent,
-    PerfilComponent,
     ExperienciaComponent,
     ExperienciaItemComponent,
     EducacionComponent,
@@ -58,7 +57,8 @@ const rutas: Routes = [
     AddProyectoComponent,
     DdMmYYYYDatePipe,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

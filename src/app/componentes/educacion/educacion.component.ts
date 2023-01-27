@@ -12,21 +12,22 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./educacion.component.css']
 })
 export class EducacionComponent implements OnInit {
+  isLogged: boolean = false;
+  personaId: string = '1';
   educacion?: Educacion[];
  
-  personaId: number = 1;
 
   constructor(private educacionService: EducacionService,
     private router: Router,
     private tokenService: TokenService) { }
-
-  isLogged: boolean = false;
   
   ngOnInit(): void {
-    this.retrieveEducacions();
     if(this.tokenService.getToken()){
       this.isLogged = true;
-    }
+      this.personaId = this.tokenService.getPersonaId();
+      console.log(this.personaId);
+    }   
+    this.retrieveEducacions();
   }
 
   retrieveEducacions(): void {
@@ -34,7 +35,7 @@ export class EducacionComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.educacion = data;
-          console.log(data);
+          // console.log(data);
         },
         error: (e) => console.error(e)
       });

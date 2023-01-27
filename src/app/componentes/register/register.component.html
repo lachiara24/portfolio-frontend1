@@ -2,10 +2,10 @@
     <form class="custom-form" method="post">
       <h1>Register</h1>
       <input
-        type="email"
-        [(ngModel)]="email"
-        name="email"
-        placeholder="Email"
+        type="text"
+        [(ngModel)]="nombreUsuario"
+        name="nombreUsuario"
+        placeholder="Nombre de usuario"
         required="required"
       />
       <input
@@ -23,6 +23,6 @@
         required="required"
       />
 
-      <!-- <button type="submit" (click)="register()">Register</button> -->
+      <button type="submit" (click)="register()">Register</button>
     </form>
   </div>
