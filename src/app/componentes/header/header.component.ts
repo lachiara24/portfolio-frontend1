@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/services/token.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -8,12 +9,20 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class HeaderComponent {
 
-  constructor(public usersService: UsersService){
+  isLogged: boolean = false;
+
+  constructor(private tokenService: TokenService){}
+
+  ngOnInit() {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }
   }
 
-
-  logout(){
-    this.usersService.logout();
+  logOut(){
+    this.tokenService.logOut();
+    window.location.reload();
   }
+
 
 }

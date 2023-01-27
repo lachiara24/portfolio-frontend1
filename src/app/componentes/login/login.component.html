@@ -2,10 +2,10 @@
     <form class="custom-form" method="post">
       <h1>Login</h1>
       <input
-        type="email"
-        [(ngModel)]="email"
-        name="email"
-        placeholder="Email"
+        type="text"
+        [(ngModel)]="nombreUsuario"
+        name="nombreUsuario"
+        placeholder="Nombre de usuario"
         required="required"
       />
       <input
@@ -15,6 +15,6 @@
         placeholder="Password"
         required="required"
       />
-      <button type="submit" (click)="login()">Log in</button>
+      <button type="submit" (click)="onLogin()">Log in</button>
     </form>
   </div>

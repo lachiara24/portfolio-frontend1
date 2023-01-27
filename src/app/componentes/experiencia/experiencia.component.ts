@@ -3,6 +3,7 @@ import { Experiencia } from '../../models/Experiencia';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { UsersService } from 'src/app/services/users.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -11,15 +12,19 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class ExperienciaComponent {
 
+  isLogged: boolean = false;
   experiencia?: Experiencia[];
   
   personaId: number = 1;
 
   constructor(private experienciaService: ExperienciaService,
-    public usersService: UsersService) { }
+    private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.retrieveExperiencias();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }
   }
 
   retrieveExperiencias(): void {

@@ -1,6 +1,6 @@
 <div class="card">
     <h2>{{proyecto.nombre}}
-        <div>
+        <div *ngIf="isLogged">
             <fa-icon class="icono p-2" [icon]="faPenToSquare" routerLink="/proyecto/{{proyecto.id}}"></fa-icon>
             <fa-icon class="icono p-2" [icon]="faWindowClose" (click)="onDelete(proyecto)"></fa-icon>
         </div>

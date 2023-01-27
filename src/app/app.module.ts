@@ -26,6 +26,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { RegisterComponent } from './componentes/register/register.component';
 import { GlobalHttpInterceptorService } from './services/global-http-interceptor.service';
 import { UsersService } from './services/users.service';
+import { interceptorProvider } from './services/interceptor-service';
 
 const rutas: Routes = [
   { path: '', component: HomeComponent},
@@ -68,8 +69,9 @@ const rutas: Routes = [
     FormsModule
   ],
   providers: [
-    [UsersService],
-    { provide: HTTP_INTERCEPTORS, useClass: GlobalHttpInterceptorService, multi: true  }
+    interceptorProvider
+    // [UsersService],
+    // { provide: HTTP_INTERCEPTORS, useClass: GlobalHttpInterceptorService, multi: true  }
   ],
   bootstrap: [AppComponent]
 })

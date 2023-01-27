@@ -102,9 +102,9 @@
             </a>
         </li>   
         <li class="item-nav">
-            <button routerLink="/login" *ngIf="!usersService.logIn" class="button-1">Login</button>
-            <button routerLink="/register" *ngIf="!usersService.logIn" class="button-1">Register</button>
-            <button (click)="logout()" *ngIf="usersService.logIn">Logout</button>
+            <button routerLink="/login" *ngIf="!isLogged" class="button-1">Login</button>
+            <button routerLink="/register" *ngIf="!isLogged" class="button-1">Register</button>
+            <button (click)="logOut()" *ngIf="isLogged" >Logout</button>
         </li>           
     </ul>
 

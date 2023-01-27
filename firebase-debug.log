@@ -1,0 +1,14 @@
+[debug] [2023-01-27T01:09:08.643Z] ----------------------------------------------------------------------
+[debug] [2023-01-27T01:09:08.645Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Usuario\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2023-01-27T01:09:08.645Z] CLI Version:   11.21.0
+[debug] [2023-01-27T01:09:08.645Z] Platform:      win32
+[debug] [2023-01-27T01:09:08.645Z] Node Version:  v18.12.1
+[debug] [2023-01-27T01:09:08.653Z] Time:          Thu Jan 26 2023 22:09:08 GMT-0300 (hora estándar de Argentina)
+[debug] [2023-01-27T01:09:08.653Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-01-27T01:09:08.704Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-01-27T01:09:08.704Z] > authorizing via signed-in user (chiaraludmila24@gmail.com)
+[debug] [2023-01-27T01:09:08.704Z] [iam] checking project frontend-portfolio-d0f60 for permissions ["firebase.projects.get"]
+[debug] [2023-01-27T01:09:08.708Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/frontend-portfolio-d0f60:testIamPermissions [none]
+[debug] [2023-01-27T01:09:08.708Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/frontend-portfolio-d0f60:testIamPermissions x-goog-quota-user=projects/frontend-portfolio-d0f60
+[debug] [2023-01-27T01:09:08.708Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/frontend-portfolio-d0f60:testIamPermissions {"permissions":["firebase.projects.get"]}

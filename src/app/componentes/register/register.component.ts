@@ -11,12 +11,12 @@ export class RegisterComponent {
   password: string;
   confirmPassword: string;
 
-  constructor(private userService: UsersService) {}
+  // constructor(private userService: UsersService) {}
 
-  register() {
-    const user = { username: this.email, password: this.password };
-    this.userService.register(user).subscribe(data => {
-      this.userService.setToken(data.accessToken);
-    });
-  }
+  // register() {
+  //   const user = { username: this.email, password: this.password };
+  //   this.userService.register(user).subscribe(data => {
+  //     this.userService.setToken(data.accessToken);
+  //   });
+  // }
 }

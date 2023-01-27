@@ -36,7 +36,7 @@
 
     <div class="info">
         <h4>{{item.titulo}}
-            <div *ngIf="usersService.logIn">
+            <div *ngIf="isLogged">
                 <fa-icon class="icono p-2" [icon]="faPenToSquare" routerLink="/educacion/{{item.id}}"></fa-icon>
                 <fa-icon class="icono p-2" [icon]="faWindowClose" (click)="onDelete(item)"></fa-icon>
             </div>                

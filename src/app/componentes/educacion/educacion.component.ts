@@ -4,6 +4,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { EducacionService } from 'src/app/services/educacion.service';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-educacion',
@@ -17,10 +18,15 @@ export class EducacionComponent implements OnInit {
 
   constructor(private educacionService: EducacionService,
     private router: Router,
-    public usersService: UsersService) { }
+    private tokenService: TokenService) { }
 
+  isLogged: boolean = false;
+  
   ngOnInit(): void {
     this.retrieveEducacions();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }
   }
 
   retrieveEducacions(): void {

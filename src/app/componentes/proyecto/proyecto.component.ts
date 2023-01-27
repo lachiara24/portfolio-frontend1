@@ -1,24 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Proyecto } from '../../models/Proyecto';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ProyectoService } from 'src/app/services/proyecto.service';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-proyecto',
   templateUrl: './proyecto.component.html',
   styleUrls: ['./proyecto.component.css']
 })
-export class ProyectoComponent {
+export class ProyectoComponent implements OnInit {
   faPlus = faPlus;
   proyecto: Proyecto[];
   personaId: number = 1;
 
   constructor(private proyectoService: ProyectoService,
-    private router: Router) { }
+    private router: Router,
+    private tokenService: TokenService) { }
 
+
+  isLogged: boolean = false;
+  
   ngOnInit(): void {
     this.retrieveProyectos();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }
   }
 
   retrieveProyectos(): void {
