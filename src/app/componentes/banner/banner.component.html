@@ -48,7 +48,7 @@
       </div>
       <div class="acerca">
         <h3>Acerca de
-          <fa-icon routerLink="/perfil" *ngIf="isLogged" class="" [icon]="faPenToSquare"></fa-icon>
+          <fa-icon routerLink="/perfil/{{usuario.id}}" *ngIf="isLogged" class="" [icon]="faPenToSquare"></fa-icon>
         </h3>
         <p>{{usuario.info}}</p>
       </div>    

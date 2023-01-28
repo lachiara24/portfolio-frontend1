@@ -1,13 +1,10 @@
-<div class="container-fluid"
-    [ngStyle]="{'background-color': color}">
-    <h2 class="p-3">Educación
+<h2 class="p-3">Educación
         <fa-icon class="icono p-2" *ngIf="isLogged" routerLink="/educacion/{{personaId}}/add" [icon]="faPlus"></fa-icon>
-    </h2>
-    <div>
+</h2>
+<div class="contenedor">
         <app-educacion-item    
         *ngFor="let item of educacion"
         [item] = "item"
         (onDeleteItem)="delete(item)">    
         </app-educacion-item>
-    </div>    
-</div>
+</div>   

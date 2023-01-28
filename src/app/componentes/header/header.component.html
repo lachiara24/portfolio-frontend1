@@ -60,10 +60,10 @@
 
 <div class="header">
     <a class="logo" routerLink="/">
-        <img src="../../../assets/img/arg-prog.png" width="100" height="30" alt="">
+        <img src="../../../assets/img/arg-prog.png" width="130" height="40" alt="">
     </a>
 
-    <ul class="lista-nav">
+    <!-- <ul class="lista-nav">
         <li class="item-nav menu">
             <a class="link-nav" routerLink="/" >Inicio</a>
         </li>
@@ -82,7 +82,7 @@
         <li class="item-nav menu">
             <a class="link-nav" routerLink="/" >Sobre mí</a>
         </li>              
-    </ul>
+    </ul> -->
 
     <ul class="lista-nav">
         <li class="item-nav">
@@ -102,9 +102,8 @@
             </a>
         </li>   
         <li class="item-nav">
-            <button routerLink="/login" *ngIf="!isLogged" class="button-1">Login</button>
-            <button routerLink="/register" *ngIf="!isLogged" class="button-1">Register</button>
-            <button (click)="logOut()" *ngIf="isLogged" >Logout</button>
+            <button routerLink="/login" *ngIf="!isLogged">Iniciar sesión</button>
+            <button (click)="logOut()" *ngIf="isLogged">Cerrar sesión</button>
         </li>           
     </ul>
 

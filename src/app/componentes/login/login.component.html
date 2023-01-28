@@ -1,20 +1,85 @@
-<div class="login">
-    <form class="custom-form" method="post">
-      <h1>Login</h1>
+
+
+
+<div class="container" #container>
+	<div class="form-container sign-in-container">
+		<form [formGroup]="formLogin" (ngSubmit)="login()">
+			<h1>Iniciar sesión</h1>
+      <br>
+      <input
+          type="text"
+          formControlName="nombreUsuario"
+          placeholder="Nombre de usuario"
+          [ngClass]="{ 'is-invalid': submitted && f2['nombreUsuario'].errors }"
+        />
+      <div *ngIf="submitted && f2['nombreUsuario'].errors" class="invalid-feedback">
+        <div *ngIf="f2['nombreUsuario'].errors['required']">Este campo es obligatorio</div>
+      </div>
+
+      <input
+          type="password"
+          formControlName="password"
+          placeholder="Contraseña"
+          [ngClass]="{ 'is-invalid': submitted && f2['password'].errors }"
+        />
+      <div *ngIf="submitted && f2['password'].errors" class="invalid-feedback">
+        <div *ngIf="f2['password'].errors['required']">Este campo es obligatorio</div>
+      </div>
+
+			<button>Iniciar sesión</button>
+		</form>
+	</div>
+	<div class="form-container sign-up-container">
+		<form [formGroup]="formRegister" (ngSubmit)="register()">
+			<h1>Crear usuario</h1>
+      <br>
+
       <input
         type="text"
-        [(ngModel)]="nombreUsuario"
-        name="nombreUsuario"
-        placeholder="Nombre de usuario"
-        required="required"
+        formControlName="nombre"
+        placeholder="Nombre completo"
+        [ngClass]="{ 'is-invalid': submitted && f['nombre'].errors }"
       />
+      <div *ngIf="submitted && f['nombre'].errors" class="invalid-feedback">
+        <div *ngIf="f['nombre'].errors['required']">Este campo es obligatorio</div>
+      </div>
+
       <input
-        type="password"
-        [(ngModel)]="password"
-        name="password"
-        placeholder="Password"
-        required="required"
-      />
-      <button type="submit" (click)="onLogin()">Log in</button>
-    </form>
-  </div>
+          type="text"
+          formControlName="nombreUsuario"
+          placeholder="Nombre de usuario"
+          [ngClass]="{ 'is-invalid': submitted && f['nombreUsuario'].errors }"
+        />
+      <div *ngIf="submitted && f['nombreUsuario'].errors" class="invalid-feedback">
+        <div *ngIf="f['nombreUsuario'].errors['required']">Este campo es obligatorio</div>
+      </div>
+
+      <input
+          type="password"
+          formControlName="password"
+          placeholder="Contraseña"
+          [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+        />
+      <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+        <div *ngIf="f['password'].errors['required']">Este campo es obligatorio</div>
+      </div>
+
+
+			<button>Registrarse</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Hola de nuevo!</h1>
+				<p>Por favor, inicie sesión</p>
+				<button class="ghost" #signIn >Iniciar sesión</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Bienvenido!</h1>
+				<p>Ingrese sus datos para crear un nuevo usuario</p>
+				<button class="ghost" #signUp >Registrarse</button>
+			</div>
+		</div>
+	</div>
+</div>

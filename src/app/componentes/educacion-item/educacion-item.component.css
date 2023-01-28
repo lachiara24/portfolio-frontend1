@@ -4,7 +4,7 @@
 }
 
 fa-icon{
-    cursor: pointer;
+    color: #fff;
 }
 
 .imagen{
@@ -12,12 +12,78 @@ fa-icon{
     margin-left: 50px;
 }
 
-.info h4{
+/* .info h4{
     display: flex;
     justify-content: space-between;
-}
+} */
 
 .foto{
     width: 64;
     height: 64;
+}
+
+
+.course {
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	display: flex;
+	max-width: 100%;
+	margin: 20px;
+	overflow: hidden;
+	width: 800px;
+}
+
+.course h4 {
+	opacity: 0.6;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.course p {
+	opacity: 0.6;
+	margin: 10px 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.course h2 {
+	letter-spacing: 1px;
+	margin: 10px 0;
+}
+
+.course-preview {
+    display: flex;
+    align-items: center;
+	background-color: #2A265F;
+	color: #fff;
+	padding: 30px;
+	max-width: 250px;
+}
+
+
+.course-info {
+	padding: 30px;
+	position: relative;
+	width: 100%;
+}
+
+.botones{
+    display: inline;
+    position: absolute;
+    bottom: 15px;
+	right: 10px;
+}
+
+.btn {
+	background-color: #2A265F;
+	border: 0;
+	border-radius: 50px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	font-size: 16px;
+	padding: 12px 25px;	
+	letter-spacing: 1px;
+    margin-right: 10px;
 }

@@ -23,10 +23,10 @@
       
 </div> -->
 
-<div class="contenedor">
-    <div class="imagen">
-        <!-- <img class="foto" src="../../../assets/img/{{item.img}}" 
-            alt="...">  -->
+
+    <!-- <div class="imagen">
+        <img class="foto" src="../../../assets/img/{{item.img}}" 
+            alt="..."> 
         <div >
             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 16 16">
                 <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"/>
@@ -43,6 +43,33 @@
         </h4>
         <h5>{{item.institucion}}</h5>
         <p class="text-muted">{{item.fechaInicio | ddMmYYYYDate}} - {{item.fechaFin | ddMmYYYYDate}}</p>
-    </div>  
-</div>
+    </div>   -->
 
+
+
+
+<div class="course">
+    <div class="course-preview">
+        <svg xmlns="http://www.w3.org/2000/svg" height="64" viewBox="0 0 24 24" width="64" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3 1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+        <!-- <img src="gato.webp" alt="Avatar" class="image"> -->
+        <!-- <h6>Course</h6>
+        <h2>JavaScript Fundamentals</h2>
+        <a href="#">View all chapters <i class="fas fa-chevron-right"></i></a> -->
+    </div>
+    <div class="course-info">
+        
+        <h2>{{item.titulo}}</h2>
+        <h4>{{item.institucion}}</h4>
+        <p>{{item.fechaInicio | ddMmYYYYDate}} - {{item.fechaFin | ddMmYYYYDate}}</p>
+        <div *ngIf="isLogged" class="botones">
+            <button routerLink="/educacion/{{item.id}}" class="btn">
+                <fa-icon class="icono" [icon]="faPenToSquare" ></fa-icon>
+            </button>
+            <button (click)="onDelete(item)" class="btn">
+                <fa-icon class="icono" [icon]="faWindowClose" ></fa-icon>  
+            </button>
+        </div>
+        
+    </div>
+</div>

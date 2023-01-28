@@ -2,3 +2,97 @@ h2 {
     display: flex;
     justify-content: space-between;
 }
+
+fa-icon{
+  color: #FFFBEB;
+}
+
+/*  */
+
+a{
+  text-decoration: none;
+  color: #263159;
+}
+
+.underline{
+  position: relative;
+}
+
+
+
+.underline::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: #263159;
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .underline:hover::before{
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+
+/* Links */
+.links{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* titulo */
+
+.titulo {
+  text-align: center;
+}
+
+/* descripcion */
+
+.descripcion{
+  text-align: justify;
+}
+
+/* Container needed to position the overlay. Adjust the width as needed */
+.container {
+  position: relative;
+  width: 50%;
+  max-width: 300px;
+}
+
+/* Make the image to responsive */
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* The overlay effect - lays on top of the container and over the image */
+.overlay {
+  position: absolute;
+  top: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.iconos{
+  display: flex;
+  justify-content: end;
+}

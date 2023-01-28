@@ -37,7 +37,7 @@ const rutas: Routes = [
   { path: 'experiencia/:id', component: AddExperienciaComponent},
   { path: 'proyecto/:personaId/add', component: AddProyectoComponent},
   { path: 'proyecto/:id', component: AddProyectoComponent},
-  { path: 'perfil', component: PerfilComponent}
+  { path: 'perfil/:personaId', component: PerfilComponent}
 ];
 
 @NgModule({

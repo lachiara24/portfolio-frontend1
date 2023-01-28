@@ -1,28 +1,51 @@
-<div class="register">
-    <form class="custom-form" method="post">
-      <h1>Register</h1>
+<div class="submit-form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label>Nombre completo</label>
       <input
         type="text"
-        [(ngModel)]="nombreUsuario"
-        name="nombreUsuario"
-        placeholder="Nombre de usuario"
-        required="required"
+        formControlName="nombre"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['nombre'].errors }"
       />
-      <input
-        type="password"
-        [(ngModel)]="password"
-        name="password"
-        placeholder="Password"
-        required="required"
-      />
-      <input
-        type="password"
-        [(ngModel)]="confirmPassword"
-        name="password"
-        placeholder="Repeat the password"
-        required="required"
-      />
+      <div *ngIf="submitted && f['nombre'].errors" class="invalid-feedback">
+        <div *ngIf="f['nombre'].errors['required']">Este campo es obligatorio</div>
+      </div>
+    </div>
 
-      <button type="submit" (click)="register()">Register</button>
-    </form>
+    <div class="form-group">
+      <label>Nombre de usuario</label>
+      <input
+        type="text"
+        formControlName="nombreUsuario"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['nombreUsuario'].errors }"
+      />
+      <div *ngIf="submitted && f['nombreUsuario'].errors" class="invalid-feedback">
+        <div *ngIf="f['nombreUsuario'].errors['required']">Este campo es obligatorio</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Contraseña</label>
+      <input
+        type="password"
+        formControlName="password"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+      />
+      <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+        <div *ngIf="f['password'].errors['required']">Este campo es obligatorio</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-success">Login</button>
+      <button type="button" class="btn btn-secundary" routerLink="/login">Ya tengo cuenta</button>
+    </div>
+  </form>
+
+    
   </div>
+
