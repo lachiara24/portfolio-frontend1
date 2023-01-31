@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.formRegister = this.fb.group(
       {
         nombre: ['', Validators.required],
+        apellido: ['', Validators.required],
         nombreUsuario: ['', Validators.required],
         password: ['', Validators.required]
       }
@@ -88,8 +89,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    this.nuevoUsuario = new NuevoUsuario(this.formRegister.value.nombre, 
-      this.formRegister.value.nombreUsuario, this.formRegister.value.password);
+    this.nuevoUsuario = new NuevoUsuario(this.formRegister.value.nombre,
+      this.formRegister.value.apellido, this.formRegister.value.nombreUsuario,
+       this.formRegister.value.password);
     this.authService.newUser(this.nuevoUsuario).subscribe(data => {
       console.log(data);
       this.renderer2.removeClass(this.container.nativeElement, 'right-panel-active');

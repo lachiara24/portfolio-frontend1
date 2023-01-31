@@ -1,6 +1,8 @@
-export interface Proyecto{
-    id?: number;
-    nombre?: string;
-    descripcion?: string;
-    link?: string;
+export class Proyecto{
+    id!: number;
+    nombre!: string;
+    descripcion!: string;
+    demo!: string;
+    repo!: string;
+    img!: string;
 }

@@ -37,11 +37,21 @@
       <input
         type="text"
         formControlName="nombre"
-        placeholder="Nombre completo"
+        placeholder="Nombre"
         [ngClass]="{ 'is-invalid': submitted && f['nombre'].errors }"
       />
       <div *ngIf="submitted && f['nombre'].errors" class="invalid-feedback">
         <div *ngIf="f['nombre'].errors['required']">Este campo es obligatorio</div>
+      </div>
+
+      <input
+        type="text"
+        formControlName="apellido"
+        placeholder="Apellido"
+        [ngClass]="{ 'is-invalid': submitted && f['apellido'].errors }"
+      />
+      <div *ngIf="submitted && f['apellido'].errors" class="invalid-feedback">
+        <div *ngIf="f['apellido'].errors['required']">Este campo es obligatorio</div>
       </div>
 
       <input

@@ -26,6 +26,14 @@ import { GlobalHttpInterceptorService } from './services/global-http-interceptor
 import { UsersService } from './services/users.service';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { interceptorProvider } from './services/interceptor-service';
+import { FileUploadComponent } from './componentes/file-upload/file-upload.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { AboutMeComponent } from './componentes/about-me/about-me.component';
+import { SkillComponent } from './componentes/skill/skill.component';
+import { SkillItemComponent } from './componentes/skill-item/skill-item.component';
+import { AddSkillComponent } from './componentes/add-skill/add-skill.component';
 
 const rutas: Routes = [
   { path: '', component: HomeComponent},
@@ -37,6 +45,8 @@ const rutas: Routes = [
   { path: 'experiencia/:id', component: AddExperienciaComponent},
   { path: 'proyecto/:personaId/add', component: AddProyectoComponent},
   { path: 'proyecto/:id', component: AddProyectoComponent},
+  { path: 'skill/:personaId/add', component: AddSkillComponent},
+  { path: 'skill/:id', component: AddSkillComponent},
   { path: 'perfil/:personaId', component: PerfilComponent}
 ];
 
@@ -58,7 +68,12 @@ const rutas: Routes = [
     DdMmYYYYDatePipe,
     LoginComponent,
     RegisterComponent,
-    PerfilComponent
+    PerfilComponent,
+    FileUploadComponent,
+    AboutMeComponent,
+    SkillComponent,
+    SkillItemComponent,
+    AddSkillComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +81,9 @@ const rutas: Routes = [
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers: [
     interceptorProvider

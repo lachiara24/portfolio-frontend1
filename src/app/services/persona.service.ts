@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { TokenService } from './token.service';
 import { Persona } from '../models/Persona';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-const baseUrl = 'http://localhost:8080/api/persona';
+const baseUrl = environment.URL + 'persona';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,9 @@ export class PersonaService {
 
   update(id: any, data: any): Observable<any> {
     return this.http.put(`${baseUrl}/${id}`, data);
+  }
+
+  updatePhotos(id: any, data: any): Observable<any>{
+    return this.http.put(`${baseUrl}/${id}/photos`, data);
   }
 }

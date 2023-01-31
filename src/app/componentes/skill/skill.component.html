@@ -1,0 +1,10 @@
+<h2 class="p-3">Skill
+    <fa-icon routerLink="/skill/{{personaId}}/add" *ngIf="isLogged" class="icono p-2" [icon]="faPlus"></fa-icon>
+</h2>
+<div class="contenedor">
+    <app-skill-item    
+    *ngFor="let item of skill"
+    [item] = "item"
+    (onDeleteItem)="delete(item)">    
+    </app-skill-item>
+</div>    

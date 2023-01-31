@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Proyecto } from '../models/Proyecto';
+import { environment } from 'src/environments/environment';
 
-const baseUrl = 'http://localhost:8080/api/persona';
+const baseUrl = environment.URL + 'persona';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class ProyectoService {
   }
 
   get(id: any): Observable<Proyecto> {
-    return this.http.get(`${baseUrl}/proyecto/${id}`);
+    return this.http.get<Proyecto>(`${baseUrl}/proyecto/${id}`);
   }
 
   create(personaId: any, data: any): Observable<any> {

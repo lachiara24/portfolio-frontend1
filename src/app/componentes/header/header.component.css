@@ -1,13 +1,17 @@
 .header{
-    position: sticky;
-    top: 0;
-    z-index: 999;
+    
     width: 100%;
     padding: 10px;
-    background-color: #251749;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.nav{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: #251749;
 }
 
 .item-nav {

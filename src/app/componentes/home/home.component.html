@@ -1,14 +1,33 @@
 <app-header></app-header>
-<app-banner
-    [usuario]="usuario"
-    [isLogged]="isLogged">
-</app-banner>
+<div class="container">
+    <app-banner
+        [usuario]="usuario"
+        [isLogged]="isLogged">
+        </app-banner>
+    <div class="row">
+        <div class="col-8">
+            <app-educacion>
+            </app-educacion>
+            
+            <app-experiencia>    
+            </app-experiencia>
 
-<app-educacion>
-</app-educacion>
+            <app-skill></app-skill>
+        </div>
+        <div class="col">
+            <app-about-me
+                [usuario]="usuario">
+            </app-about-me>
+            <app-proyecto>
+            </app-proyecto>
+        </div>
+    </div>
 
-<app-experiencia>    
-</app-experiencia>
+</div>
 
-<app-proyecto>
-</app-proyecto>
+
+
+
+
+
+

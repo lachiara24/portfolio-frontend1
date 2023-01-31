@@ -27,13 +27,26 @@
       </div>
 
       <div class="form-group">
-        <label>Link</label>
+        <label>Link demo</label>
         <input
           type="text"
-          formControlName="link"
+          formControlName="demo"
           class="form-control"
         />
       </div>
+
+      <div class="form-group">
+        <label>Link repositorio</label>
+        <input
+          type="text"
+          formControlName="repo"
+          class="form-control"
+        />
+      </div>
+
+      
+
+      
   
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Guardar</button>
@@ -47,3 +60,26 @@
       </div>
     </form>
   </div>
+
+
+  <!-- cambiar foto de PROYECTO -->
+  <div class="perfil-foto">
+    <label for="proyecto-img">
+      <img class="img-proyecto" src="{{this.form.value.img}}" alt="">
+      <div class="hover-profile">
+        <img class="icon-edit" src="../../../assets/img/icon-edit.svg" alt="">
+      </div>
+    </label>
+  </div>
+  
+  <input
+    id="proyecto-img"
+    style="display: none;"
+    type="file"
+    class="form-control"
+    [ngModel]="imgProyecto"
+    (change)="uploadImageProyecto($event)"
+    accept=".jpg, .png, .jpeg"
+  />
+
+  <button type="button" (click)="updateImage()">Guardar foto</button>

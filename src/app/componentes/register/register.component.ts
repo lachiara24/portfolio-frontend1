@@ -14,54 +14,57 @@ import { AbstractControl } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   
-  submitted: boolean = false;
+  // submitted: boolean = false;
 
-  form: FormGroup;
+  // form: FormGroup;
 
-  constructor(private authService: AuthService,
-    private router: Router,
-    private fb: FormBuilder){
-  }
-
-  ngOnInit(): void {
-    this.form = this.fb.group(
-      {
-        nombre: ['', Validators.required],
-        nombreUsuario: ['', Validators.required],
-        password: ['', Validators.required]
-      }
-    );
-  }
-
-  get f(): { [key: string]: AbstractControl } {
-    return this.form.controls;
-  }
-  // constructor(private userService: UsersService) {}
-
-  // register() {
-  //   const user = { username: this.email, password: this.password };
-  //   this.userService.register(user).subscribe(data => {
-  //     this.userService.setToken(data.accessToken);
-  //   });
+  // constructor(private authService: AuthService,
+  //   private router: Router,
+  //   private fb: FormBuilder){
   // }
 
-  nuevoUsuario: NuevoUsuario;
+  // ngOnInit(): void {
+  //   this.form = this.fb.group(
+  //     {
+  //       nombre: ['', Validators.required],
+  //       nombreUsuario: ['', Validators.required],
+  //       password: ['', Validators.required]
+  //     }
+  //   );
+  // }
 
-  register() {
-    this.nuevoUsuario = new NuevoUsuario(this.form.value.nombre, this.form.value.nombreUsuario, this.form.value.password);
-    this.authService.newUser(this.nuevoUsuario).subscribe(data => {
-      console.log(data);
-      this.router.navigate(['']);
-    })
-  }
-
-  onSubmit() {
-    this.submitted = true;
-
-    if(!this.form.valid){
-      return;
+    ngOnInit(): void {
+      
     }
+  // get f(): { [key: string]: AbstractControl } {
+  //   return this.form.controls;
+  // }
+  // // constructor(private userService: UsersService) {}
 
-    this.register();
-  }
+  // // register() {
+  // //   const user = { username: this.email, password: this.password };
+  // //   this.userService.register(user).subscribe(data => {
+  // //     this.userService.setToken(data.accessToken);
+  // //   });
+  // // }
+
+  // nuevoUsuario: NuevoUsuario;
+
+  // register() {
+  //   this.nuevoUsuario = new NuevoUsuario(this.form.value.nombre, this.form.value.nombreUsuario, this.form.value.password);
+  //   this.authService.newUser(this.nuevoUsuario).subscribe(data => {
+  //     console.log(data);
+  //     this.router.navigate(['']);
+  //   })
+  // }
+
+  // onSubmit() {
+  //   this.submitted = true;
+
+  //   if(!this.form.valid){
+  //     return;
+  //   }
+
+  //   this.register();
+  // }
 }

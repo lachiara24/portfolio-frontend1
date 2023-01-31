@@ -1,0 +1,25 @@
+<div class="course">
+    <div class="course-preview">
+        <img src="{{item.img}}" alt="">
+    </div>
+    <div class="course-info">
+        
+        <h2>{{item.nombre}}</h2>
+        
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-bar-fill" [ngStyle]="{'width.%': item.porcentaje}"></div>
+            </div>
+        </div>
+        <div *ngIf="isLogged" class="botones">
+            <button routerLink="/skill/{{item.id}}" class="btn">
+                <fa-icon class="icono" [icon]="faPenToSquare" ></fa-icon>
+            </button>
+            <button (click)="onDelete(item)" class="btn">
+                <fa-icon class="icono" [icon]="faWindowClose" ></fa-icon>  
+            </button>
+        </div>
+        
+    </div>
+</div>
+

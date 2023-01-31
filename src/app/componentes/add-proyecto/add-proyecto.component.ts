@@ -4,6 +4,7 @@ import { Proyecto } from 'src/app/models/Proyecto';
 import { ProyectoService } from 'src/app/services/proyecto.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AbstractControl } from '@angular/forms';
+import { ImageService } from 'src/app/services/image.service';
 
 @Component({
   selector: 'app-add-proyecto',
@@ -17,18 +18,22 @@ export class AddProyectoComponent implements OnInit {
   id: any;
   addMode = true;
   currentProyecto: Proyecto;
+  imgProyecto: string;
 
   constructor(private fb: FormBuilder,
     private proyectoService: ProyectoService,
     private route: ActivatedRoute,
-    private router: Router) {}
+    private router: Router,
+    private imageService: ImageService) {}
 
   ngOnInit(): void {
     this.form = this.fb.group(
       {
         nombre: ['', Validators.required],
         descripcion: ['', Validators.required],
-        link: '',
+        demo: '',
+        repo: '',
+        img: ''
       }
     );
     this.personaId = this.route.snapshot.params["personaId"];
@@ -47,7 +52,9 @@ export class AddProyectoComponent implements OnInit {
           this.form.patchValue({
             nombre: this.currentProyecto.nombre,
             descripcion: this.currentProyecto.descripcion,
-            link: this.currentProyecto.link
+            demo: this.currentProyecto.demo,
+            repo: this.currentProyecto.repo,
+            img: this.currentProyecto.img
           })
           console.log(data);
         },
@@ -103,5 +110,17 @@ export class AddProyectoComponent implements OnInit {
   onReset(): void {
     this.submitted = false;
     this.form.reset();
+  }
+
+  uploadImageProyecto($event: any){
+    console.log('imagen de portada');
+    const id = this.id;
+    const name = "proyecto_" + id;
+    this.imageService.uploadImage($event, name);
+  }
+
+  updateImage(){
+    this.form.value.img = this.imageService.url;
+    alert("Imagen guardada");
   }
 }

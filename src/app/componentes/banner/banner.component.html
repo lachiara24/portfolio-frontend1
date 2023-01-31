@@ -1,14 +1,14 @@
 <!-- <div class="row portada"
         [ngStyle]="{'background-image': 'url(../../../assets/img/' + usuario.imgPortada + ')'}">
-    
+
     <div class="col-3 perfil-foto" style="position: relative;">
         <img src="../../../assets/img/{{usuario.imgPerfil}}"
-        alt="Imagen de perfil" 
+        alt="Imagen de perfil"
         class="img-fluid img-thumbnail rounded-circle">
       <div class="img-thumbnail rounded-circle text-center" style="position: absolute; left: 50px; bottom: 35px; height: 100px; width: 100px; background-color: #495579;">
         <fa-icon class="white-icon" style=" position: absolute; right:22px; top:22px" [icon]="faPenToSquare" size="3x"></fa-icon>
       </div>
-      
+
     </div>
 </div>
 <hr>
@@ -23,34 +23,192 @@
         </h3>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam nostrum cumque, mollitia omnis, officia nisi quod eum,
              voluptate natus doloribus perspiciatis ab! Vel accusantium eligendi maiores ullam. Veniam, est esse?
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam animi ratione error, quae architecto possimus 
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam animi ratione error, quae architecto possimus
             atque dignissimos consectetur ea natus non voluptate voluptas ducimus vero libero nam blanditiis unde esse.</p>
-    </div>    
+    </div>
   </div>    -->
 
+<!-- 
   <div class="contenedor">
-    <div class="portada"
-    [ngStyle]="{'background-image': 'url(../../../assets/img/' + usuario.imgPortada + ')'}">
-    <div class="perfil-foto">
-      <img src="../../../assets/img/{{usuario.imgPerfil}}"
-        alt="Imagen de perfil" 
-        class="foto">
-        <div *ngIf="isLogged" class="editar-foto">
-        <fa-icon class="white-icon" style=" position: absolute; right:22px; top:22px" [icon]="faPenToSquare" size="3x"></fa-icon>
+    <div class="portada" *ngIf="!isLogged; else imagen"
+    [ngStyle]="{'background-image': 'url(https://source.unsplash.com/1200x400/?computer)'}">
+      <div class="perfil-foto">
+        <img src="https://source.unsplash.com/200x200/?profile"
+          alt="Imagen de perfil"
+          class="foto">
       </div>
-    </div>    
-    </div> 
 
-    <div class="info">
+    </div> -->
+
+    <ng-template #hola>
+
+      <div class="portada"
+      [ngStyle]="{'background-image': 'url('+ usuario.imgPortada + ')'}">
+
+        <label class="" for="edit-portada">
+          <div class="hover-portada">
+            <img class="icon-edit" src="../../../assets/img/icon-edit.svg" alt="">
+          </div>
+        </label>
+
+        <!-- boton guardar portada -->
+      <button type="button" class="btn btn-success btn-portada" (click)="updatePortada()">Guardar portada</button>
+      <!--  -->
+      <!--  -->
+        <div class="perfil-foto">
+          <label class="" for="edit-perfil">
+            <!-- imagen de perfil -->
+            <img src="{{usuario.imgPerfil}}"
+              alt="Imagen de perfil"
+              class="foto">
+            <!-- cambiar foto de perfil -->
+            <!-- overlay hover -->
+            <div class="hover-profile">
+              <img class="icon-edit" src="../../../assets/img/icon-edit.svg" alt="">
+            </div>
+          </label>
+          <!-- boton guardar perfil -->
+          <button type="button" class="btn btn-success btn-profile" (click)="updatePerfil()">Guardar perfil</button>
+          <!--  -->
+        </div>
+      </div>
+      <!-- cambiar foto de perfil -->
+      <input
+        id="edit-perfil"
+        style="display: none;"
+        type="file"
+        class="form-control"
+        [ngModel]="imgPerfil"
+        (change)="uploadImagePerfil($event)"
+        accept=".jpg, .png, .jpeg"
+      />
+
+
+      <!-- cambiar foto de portada -->
+      <input
+        id="edit-portada"
+        type="file"
+        class="form-control"
+        [ngModel]="imgPortada"
+        (change)="uploadImagePortada($event)"
+        accept=".jpg, .png, .jpeg"
+        style="display: none;"
+      />
+
+    </ng-template>
+
+    <!-- <div class="info">
       <div class="nombre">
-        <h4>{{usuario.nombre }}</h4>        
-        <p>{{usuario.profesion}}</p>
+        <div>
+          <h2>{{usuario.nombre}} {{usuario.apellido}}</h2>
+          <p>{{usuario.profesion}}</p>
+        </div>
+
       </div>
       <div class="acerca">
         <h3>Acerca de
           <fa-icon routerLink="/perfil/{{usuario.id}}" *ngIf="isLogged" class="" [icon]="faPenToSquare"></fa-icon>
         </h3>
         <p>{{usuario.info}}</p>
-      </div>    
+      </div>
     </div>
-  </div>
+  </div> -->
+
+
+<div class="profile" *ngIf="!isLogged; else imagen">
+    <div class="profile-header">
+       <!-- BEGIN profile-header-cover -->
+      <div class="profile-header-cover"
+      [ngStyle]="{'background-image': 'url('+ usuario.imgPortada + ')'}">
+      </div>
+       <!-- END profile-header-cover -->
+       <!-- BEGIN profile-header-content -->
+       <div class="profile-header-content">
+          <!-- BEGIN profile-header-img -->
+          <div class="profile-header-img" for="edit-perfil">             
+              <img src="{{usuario.imgPerfil}}" alt="">
+            </div>
+          <!-- END profile-header-img -->
+          <!-- BEGIN profile-header-info -->
+          <div class="profile-header-info">
+             <h4 class="m-t-10 m-b-5">{{usuario.nombre}} {{usuario.apellido}}</h4>
+             <p class="m-b-10">{{usuario.profesion}}</p>
+          </div>
+          <!-- END profile-header-info -->
+       </div>
+       <!-- END profile-header-content -->
+       <!-- BEGIN profile-header-tab -->
+
+       <!-- END profile-header-tab -->
+    </div>
+ </div>
+
+
+<ng-template #imagen>
+  <div class="profile">
+    <div class="profile-header">
+       <!-- BEGIN profile-header-cover -->
+      <div class="profile-header-cover"
+       [ngStyle]="{'background-image': 'url('+ usuario.imgPortada + ')'}">
+       <!-- overlay editar portada -->
+        <label class="" for="edit-portada">
+          <div class="hover-portada">
+            <img class="icon-edit" src="../../../assets/img/icon-edit.svg" alt="">
+          </div>
+        </label>
+      </div>
+       <!-- END profile-header-cover -->
+       <!-- BEGIN profile-header-content -->
+       <div class="profile-header-content">
+          <!-- BEGIN profile-header-img -->
+          <label class="profile-header-img" for="edit-perfil">
+            
+             <!-- overlay editar foto de perfil -->
+             
+              <img src="{{usuario.imgPerfil}}" alt="">
+              <div class="hover-profile">
+                <img class="icon-edit" src="../../../assets/img/icon-edit.svg" alt="">
+              </div>
+          </label>
+          <!-- END profile-header-img -->
+          <!-- BEGIN profile-header-info -->
+          <div class="profile-header-info">
+             <h4 class="m-t-10 m-b-5">{{usuario.nombre}} {{usuario.apellido}}</h4>
+             <p class="m-b-10">{{usuario.profesion}}</p>
+             <a routerLink="/perfil/{{usuario.id}}" *ngIf="isLogged" class="btn btn-success">Edit Profile</a>
+             <a (click)="updatePerfil()" *ngIf="isLogged" class="btn btn-success">Save profile photo</a>
+             <a (click)="updatePortada()"  *ngIf="isLogged" class="btn btn-success">Save portrait</a>
+          </div>
+          <!-- END profile-header-info -->
+       </div>
+       <!-- END profile-header-content -->
+       <!-- BEGIN profile-header-tab -->
+
+       <!-- END profile-header-tab -->
+       <fa-icon routerLink="/perfil/{{usuario.id}}" *ngIf="isLogged" class="" [icon]="faPenToSquare"></fa-icon>
+    </div>
+ </div>
+
+      <!-- cambiar foto de portada -->
+      <input
+        id="edit-portada"
+        type="file"
+        class="form-control"
+        [ngModel]="imgPortada"
+        (change)="uploadImagePortada($event)"
+        accept=".jpg, .png, .jpeg"
+        style="display: none;"
+      />
+
+      <!-- cambiar foto de perfil -->
+      <input
+        id="edit-perfil"
+        style="display: none;"
+        type="file"
+        class="form-control"
+        [ngModel]="imgPerfil"
+        (change)="uploadImagePerfil($event)"
+        accept=".jpg, .png, .jpeg"
+      />
+
+</ng-template>

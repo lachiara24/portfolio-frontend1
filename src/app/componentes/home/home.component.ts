@@ -16,14 +16,16 @@ export class HomeComponent implements OnInit {
 
   isLogged: boolean = false;
   
-  usuario: Usuario = {
+  usuario: Persona = {
     id: 1,
-    nombre: "Ludmila Chiara",
-    profesion: "Full Stack Developer Jr.", imgPerfil: "gato.webp", imgPortada: "margaritas.jpg",
-    info: "Hola soy Ludmila"
+    nombre: "Ludmila",
+    apellido: "Chiara",
+    profesion: "Full Stack Developer Jr.",
+    info: "Hola soy Ludmila", imgPerfil: '', imgPortada: '',
+    github: '', linkedin: ''
   }
 
-  persona: Persona;
+  
   nombre: any;
 
   ngOnInit(): void {
@@ -31,13 +33,14 @@ export class HomeComponent implements OnInit {
       this.usuario.id = this.tokenService.getPersonaId()
       this.isLogged = true;
       this.personaService.getPersona().subscribe((data:any) => {
-        this.persona = data;
-        console.log(this.persona);
-        this.usuario.nombre = this.persona.nombre;
-        this.usuario.profesion = this.persona.profesion;
-        this.usuario.info = this.persona.info;
-        this.usuario.id = this.persona.id;
+        this.usuario = data;
+        console.log(this.usuario);
       });
+    }else{
+      this.personaService.getPersonaById(this.usuario.id)
+        .subscribe((data:any) => {
+          this.usuario = data;
+        });
     }
   }
   

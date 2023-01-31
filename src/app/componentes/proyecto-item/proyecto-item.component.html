@@ -10,20 +10,15 @@
 </div> -->
 
 <div class="card">
-    <img class="card-img-top" src="https://source.unsplash.com/600x400/?computer" alt="Card image cap">
+    <img class="card-img-top" src="{{proyecto.img}}" alt="Card image cap">
     
     <div class="card-body">
-      <h5 class="card-title titulo">{{proyecto.nombre}}</h5>
-      <p class="card-text descripcion">{{proyecto.descripcion}}</p>
+      <h5 class="card-title">{{proyecto.nombre}}</h5>
+      <p class="card-text">{{proyecto.descripcion}}</p>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Html</li>
-      <li class="list-group-item">CSS</li>
-      <li class="list-group-item">Js</li>
-    </ul>
     <div class="card-footer links">
-      <a href="{{proyecto.link}}" class="card-link underline">Ver demo</a>
-      <a href="#" class="card-link underline">Git Hub</a>
+      <a href="{{proyecto.demo}}" class="card-link underline">Ver demo</a>
+      <a href="{{proyecto.repo}}" class="card-link underline">Git Hub</a>
     </div>
     <div class="overlay iconos" *ngIf="isLogged">
         <fa-icon class="icono p-2" [icon]="faPenToSquare" routerLink="/proyecto/{{proyecto.id}}"></fa-icon>

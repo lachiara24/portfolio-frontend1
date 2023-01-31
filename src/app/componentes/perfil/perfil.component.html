@@ -1,68 +1,105 @@
-<div class="submit-form">
+<div class="container">
+  <div class="form-container">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label>Nombre</label>
+      <h1 style="display: flex; justify-content: center;">Editar perfil</h1>
+      <div class="form">
+        
         <input
           type="text"
           formControlName="nombre"
           class="form-control"
+          placeholder="Nombre"
           [ngClass]="{ 'is-invalid': submitted && f['nombre'].errors }"
         />
         <div *ngIf="submitted && f['nombre'].errors" class="invalid-feedback">
           <div *ngIf="f['nombre'].errors['required']">Este campo es obligatorio</div>
         </div>
-      </div>
+
+      
+      
+        <input
+          type="text"
+          formControlName="apellido"
+          class="form-control"
+          placeholder="Apellido"
+          [ngClass]="{ 'is-invalid': submitted && f['apellido'].errors }"
+        />
+        <div *ngIf="submitted && f['apellido'].errors" class="invalid-feedback">
+          <div *ngIf="f['apellido'].errors['required']">Este campo es obligatorio</div>
+        </div>
   
-      <div class="form-group">
-        <label>Profesion</label>
+      
+        
         <input
           type="text"
           formControlName="profesion"
           class="form-control"
+          placeholder="Profesion"
           [ngClass]="{ 'is-invalid': submitted && f['profesion'].errors }"
         />
         <div *ngIf="submitted && f['profesion'].errors" class="invalid-feedback">
           <div *ngIf="f['profesion'].errors['required']">Este campo es obligatorio</div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label>Acerca de mi</label>
-        <input
+        <textarea cols="30" rows = "5" formControlName="info"
+        placeholder="Sobre mi..."></textarea>
+        
+        <!-- <input
           type="text"
           formControlName="info"
           class="form-control"
+        /> -->
+
+      
+    
+        <input
+          type="text"
+          formControlName="github"
+          class="form-control"
+          placeholder="Link a GitHub"
+        />
+
+     
+       
+        <input
+          type="text"
+          formControlName="linkedin"
+          class="form-control"
+          placeholder="Link a LinkedIn"
         />
       </div>
 
-      <div class="form-group">
-        <label>Imagen de perfil</label>
-        <input
-          type="image"
-          formControlName="imgPerfil"
-          class="form-control"
-        />
-      </div>
+      
 
-      <div class="form-group">
-        <label>Imagen de portada</label>
-        <input
-          type="image"
-          formControlName="imgPortada"
-          class="form-control"
-        />
-      </div>
+      
       
   
-      <div class="form-group">
+      <div class="botones">
         <button type="submit" class="btn btn-primary">Guardar</button>
         <button
           type="button"
-          (click)="onReset()"
-          class="btn btn-warning float-right"
-        >
-          Resetear
+          routerLink="/"
+          class="btn btn-warning">
+          Cancelar
         </button>
       </div>
     </form>
   </div>
+</div>
+
+  
+
+  <!-- <div class="form-group">
+    <label>Imagen de portada</label>
+    <input
+      type="file"
+      class="form-control"
+      [ngModel]="imgPortada"
+      (change)="uploadImagePortada($event)"
+      accept=".jpg, .png, .jpeg"
+    />
+  </div>
+
+  <img [src]="imgPortada" alt="" width="200px">
+
+  <button type="button" (click)="saveImgPortada()">Guardar imagen de portada</button> -->

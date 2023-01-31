@@ -4,6 +4,8 @@ import { AbstractControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PersonaService } from 'src/app/services/persona.service';
 import { Persona } from 'src/app/models/Persona';
+import { ImageService } from 'src/app/services/image.service';
+import { Photo } from 'src/app/models/Photo';
 
 @Component({
   selector: 'app-perfil',
@@ -16,19 +18,24 @@ export class PerfilComponent implements OnInit{
   personaId: string = '1';
   currentPersona: Persona;
 
+  imgPerfil: string = '';
+  imgPortada: string = '';
+
   constructor(private fb: FormBuilder,
     private route: ActivatedRoute,
     private personaService: PersonaService,
-    private router: Router){}
+    private router: Router,
+    public imageService: ImageService){}
 
   ngOnInit() {
     this.form = this.fb.group(
       {
         nombre: ['', Validators.required],
+        apellido: ['', Validators.required],
         profesion: ['', Validators.required],
         info: '',
-        imgPerfil: '',
-        imgPortada: ''
+        github: '',
+        linkedin: ''
       }
     );
     this.personaId = this.route.snapshot.params["personaId"];
@@ -42,10 +49,15 @@ export class PerfilComponent implements OnInit{
           this.currentPersona = data;
           this.form.patchValue({
             nombre: this.currentPersona.nombre,
+            apellido: this.currentPersona.apellido,
             profesion: this.currentPersona.profesion,
-            info: this.currentPersona.info
+            info: this.currentPersona.info,
+            github: this.currentPersona.github,
+            linkedin: this.currentPersona.linkedin,
           })
           console.log(data);
+          this.imgPerfil = this.currentPersona.imgPerfil;
+          this.imgPortada = this.currentPersona.imgPortada;
         },
         error: (e) => console.error(e)
       });
@@ -82,4 +94,5 @@ export class PerfilComponent implements OnInit{
     this.submitted = false;
     this.form.reset();
   }
+
 }
