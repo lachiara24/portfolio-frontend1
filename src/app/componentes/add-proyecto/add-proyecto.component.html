@@ -1,85 +1,118 @@
-<div class="submit-form">
+<div class="container">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label>Nombre</label>
-        <input
-          type="text"
-          formControlName="nombre"
-          class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['nombre'].errors }"
-        />
-        <div *ngIf="submitted && f['nombre'].errors" class="invalid-feedback">
-          <div *ngIf="f['nombre'].errors['required']">Este campo es obligatorio</div>
+
+      <div class="row form-container">
+        <!-- inicio col -->
+        <div *ngIf="!addMode" class="col cont">
+          <div class="form-img">
+            <!-- cambiar foto de PROYECTO -->
+            <div class="perfil-foto">
+              <label for="proyecto-img">
+                <img *ngIf="imgProyecto === '' && imageService.url === ''; else img" class="img-proyecto" src="../../../assets/img/default-img.png" alt="">
+                <ng-template #img>
+                  <img *ngIf="imageService.url === ''; else imgSubida" class="img-proyecto" src="{{imgProyecto}}" alt="">
+                </ng-template>
+                <ng-template #imgSubida>
+                  <img class="img-proyecto" src="{{imageService.url}}" alt="">
+                </ng-template>
+                
+                
+                
+                <div class="hover-profile">
+                  <img class="icon-edit" src="../../../assets/img/icon-edit.svg" alt="">
+                </div>
+              </label>
+            </div>
+            
+            <input
+              id="proyecto-img"
+              style="display: none;"
+              type="file"
+              class="form-control"
+              (change)="uploadImageProyecto($event)"
+              accept=".jpg, .png, .jpeg"
+            />
+          
+            <button class="btn" style="margin-top: 20px;" type="button"(click)="updateImage()">Guardar foto</button>
+          
+          </div>
         </div>
-      </div>
-  
-      <div class="form-group">
-        <label>Descripcion</label>
-        <input
-          type="text"
-          formControlName="descripcion"
-          class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['descripcion'].errors }"
-        />
-        <div *ngIf="submitted && f['descripcion'].errors" class="invalid-feedback">
-          <div *ngIf="f['descripcion'].errors['required']">Este campo es obligatorio</div>
+        <!-- fin col -->
+
+        <!-- inicio col -->
+        <div class="col cont">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input
+              type="text"
+              formControlName="nombre"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['nombre'].errors }"
+            />
+            <div *ngIf="submitted && f['nombre'].errors" class="invalid-feedback">
+              <div *ngIf="f['nombre'].errors['required']">Este campo es obligatorio</div>
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <label>Descripcion</label>
+            <textarea cols="30" rows = "5" formControlName="descripcion"
+            [ngClass]="{ 'is-invalid': submitted && f['descripcion'].errors }">
+            </textarea>
+            <!-- <input
+              type="text"
+              formControlName="descripcion"
+              class="form-control"
+              
+            /> -->
+            <div *ngIf="submitted && f['descripcion'].errors" class="invalid-feedback">
+              <div *ngIf="f['descripcion'].errors['required']">Este campo es obligatorio</div>
+            </div>
+          </div>
         </div>
-      </div>
+        <!-- fin col -->
 
-      <div class="form-group">
-        <label>Link demo</label>
-        <input
-          type="text"
-          formControlName="demo"
-          class="form-control"
-        />
-      </div>
+        <!-- inicio col -->
+        <div class="col cont">
+          <div class="form-group">
+            <label>Link demo</label>
+            <input
+              type="text"
+              formControlName="demo"
+              class="form-control"
+            />
+          </div>
+    
+          <div class="form-group">
+            <label>Link repositorio</label>
+            <input
+              type="text"
+              formControlName="repo"
+              class="form-control"
+            />
+          </div>
+    
+        </div>
+        <!-- fin col -->
 
-      <div class="form-group">
-        <label>Link repositorio</label>
-        <input
-          type="text"
-          formControlName="repo"
-          class="form-control"
-        />
       </div>
+      
 
+      
       
 
       
   
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Guardar</button>
+      <div class="botones">
+        <button type="submit" class="btn">Guardar</button>
         <button
           type="button"
-          (click)="onReset()"
-          class="btn btn-warning float-right"
+          routerLink="/"
+          class="btn"
         >
-          Resetear
+          Cancelar
         </button>
       </div>
     </form>
   </div>
 
-
-  <!-- cambiar foto de PROYECTO -->
-  <div class="perfil-foto">
-    <label for="proyecto-img">
-      <img class="img-proyecto" src="{{this.form.value.img}}" alt="">
-      <div class="hover-profile">
-        <img class="icon-edit" src="../../../assets/img/icon-edit.svg" alt="">
-      </div>
-    </label>
-  </div>
-  
-  <input
-    id="proyecto-img"
-    style="display: none;"
-    type="file"
-    class="form-control"
-    [ngModel]="imgProyecto"
-    (change)="uploadImageProyecto($event)"
-    accept=".jpg, .png, .jpeg"
-  />
-
-  <button type="button" (click)="updateImage()">Guardar foto</button>

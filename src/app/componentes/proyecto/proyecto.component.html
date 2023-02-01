@@ -1,5 +1,7 @@
 <h2 class="p-3">Proyectos
-    <fa-icon *ngIf="isLogged" class="icono p-2" routerLink="/proyecto/{{personaId}}/add" [icon]="faPlus"></fa-icon>
+    <a class="btn" *ngIf="isLogged" routerLink="/proyecto/{{personaId}}/add">
+        <img src="../../../assets/img/icon-add.svg" alt="">
+    </a>
 </h2>
 <div class="contenedor">
 <div *ngFor="let p of proyecto">

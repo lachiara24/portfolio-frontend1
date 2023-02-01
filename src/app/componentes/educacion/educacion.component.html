@@ -1,5 +1,7 @@
 <h2 class="p-3">Educación
-        <fa-icon class="icono p-2" *ngIf="isLogged" routerLink="/educacion/{{personaId}}/add" [icon]="faPlus"></fa-icon>
+        <a class="btn" *ngIf="isLogged" routerLink="/educacion/{{personaId}}/add">
+                <img src="../../../assets/img/icon-add.svg" alt="">
+        </a>
 </h2>
 <div class="contenedor">
         <app-educacion-item    

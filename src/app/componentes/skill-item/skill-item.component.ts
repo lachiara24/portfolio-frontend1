@@ -9,7 +9,7 @@ import { TokenService } from 'src/app/services/token.service';
   templateUrl: './skill-item.component.html',
   styleUrls: ['./skill-item.component.css']
 })
-export class SkillItemComponent {
+export class SkillItemComponent implements OnInit {
   constructor(private tokenService: TokenService){}
 
   isLogged: boolean = false;

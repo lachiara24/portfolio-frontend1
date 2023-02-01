@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Experiencia } from '../../models/Experiencia';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
@@ -11,7 +11,7 @@ import { PersonaService } from 'src/app/services/persona.service';
   templateUrl: './experiencia.component.html',
   styleUrls: ['./experiencia.component.css']
 })
-export class ExperienciaComponent {
+export class ExperienciaComponent implements OnInit{
   isLogged: boolean = false;
   
   experiencia?: Experiencia[];

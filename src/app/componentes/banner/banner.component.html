@@ -114,7 +114,7 @@
     </div>
   </div> -->
 
-
+<!-- SI NO ESTA LOGUEADO -->
 <div class="profile" *ngIf="!isLogged; else imagen">
     <div class="profile-header">
        <!-- BEGIN profile-header-cover -->
@@ -143,13 +143,24 @@
     </div>
  </div>
 
-
+<!-- SI ESTA LOGUEADO -->
 <ng-template #imagen>
   <div class="profile">
     <div class="profile-header">
        <!-- BEGIN profile-header-cover -->
-      <div class="profile-header-cover"
-       [ngStyle]="{'background-image': 'url('+ usuario.imgPortada + ')'}">
+      <div *ngIf="!changePortadaImage" class="profile-header-cover"
+       [ngStyle]="{'background-image': usuario.imgPortada !== null ? 'url('+ usuario.imgPortada + ')' : 
+       'url(../../../assets/img/default-img.png)'}">
+       <!-- overlay editar portada -->
+        <label class="" for="edit-portada">
+          <div class="hover-portada">
+            <img class="icon-edit" src="../../../assets/img/icon-edit.svg" alt="">
+          </div>
+        </label>
+      </div>
+      <!-- cuando sube imagen -->
+      <div *ngIf="changePortadaImage" class="profile-header-cover"
+       [ngStyle]="{'background-image': 'url('+ imageService.url + ')'}">
        <!-- overlay editar portada -->
         <label class="" for="edit-portada">
           <div class="hover-portada">
@@ -161,11 +172,17 @@
        <!-- BEGIN profile-header-content -->
        <div class="profile-header-content">
           <!-- BEGIN profile-header-img -->
-          <label class="profile-header-img" for="edit-perfil">
-            
-             <!-- overlay editar foto de perfil -->
+          <label class="profile-header-img" for="edit-perfil">           
              
-              <img src="{{usuario.imgPerfil}}" alt="">
+             <img *ngIf="usuario.imgPerfil === null && imageService.url === ''; else img" src="../../../assets/img/user-default.jpeg" alt="">
+             <ng-template #img>
+               <img *ngIf="!changeProfileImage; else imgSubida" src="{{usuario.imgPerfil}}" alt="">
+             </ng-template>
+             <ng-template #imgSubida>
+               <img src="{{imageService.url}}" alt="">
+             </ng-template>
+
+              <!-- overlay editar foto de perfil -->
               <div class="hover-profile">
                 <img class="icon-edit" src="../../../assets/img/icon-edit.svg" alt="">
               </div>
@@ -175,9 +192,9 @@
           <div class="profile-header-info">
              <h4 class="m-t-10 m-b-5">{{usuario.nombre}} {{usuario.apellido}}</h4>
              <p class="m-b-10">{{usuario.profesion}}</p>
-             <a routerLink="/perfil/{{usuario.id}}" *ngIf="isLogged" class="btn btn-success">Edit Profile</a>
-             <a (click)="updatePerfil()" *ngIf="isLogged" class="btn btn-success">Save profile photo</a>
-             <a (click)="updatePortada()"  *ngIf="isLogged" class="btn btn-success">Save portrait</a>
+             <a routerLink="/perfil/{{usuario.id}}" *ngIf="isLogged" class="btn">Edit Profile</a>
+             <a (click)="updatePerfil()" *ngIf="isLogged" class="btn">Save profile photo</a>
+             <a (click)="updatePortada()"  *ngIf="isLogged" class="btn">Save portrait</a>
           </div>
           <!-- END profile-header-info -->
        </div>
@@ -185,7 +202,7 @@
        <!-- BEGIN profile-header-tab -->
 
        <!-- END profile-header-tab -->
-       <fa-icon routerLink="/perfil/{{usuario.id}}" *ngIf="isLogged" class="" [icon]="faPenToSquare"></fa-icon>
+       
     </div>
  </div>
 
@@ -194,7 +211,6 @@
         id="edit-portada"
         type="file"
         class="form-control"
-        [ngModel]="imgPortada"
         (change)="uploadImagePortada($event)"
         accept=".jpg, .png, .jpeg"
         style="display: none;"
@@ -206,7 +222,6 @@
         style="display: none;"
         type="file"
         class="form-control"
-        [ngModel]="imgPerfil"
         (change)="uploadImagePerfil($event)"
         accept=".jpg, .png, .jpeg"
       />

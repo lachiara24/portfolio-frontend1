@@ -5,6 +5,7 @@ import { ProyectoService } from 'src/app/services/proyecto.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AbstractControl } from '@angular/forms';
 import { ImageService } from 'src/app/services/image.service';
+import { Imagen } from 'src/app/models/Image';
 
 @Component({
   selector: 'app-add-proyecto',
@@ -18,13 +19,13 @@ export class AddProyectoComponent implements OnInit {
   id: any;
   addMode = true;
   currentProyecto: Proyecto;
-  imgProyecto: string;
+  imgProyecto: string = '';
 
   constructor(private fb: FormBuilder,
     private proyectoService: ProyectoService,
     private route: ActivatedRoute,
     private router: Router,
-    private imageService: ImageService) {}
+    public imageService: ImageService) {}
 
   ngOnInit(): void {
     this.form = this.fb.group(
@@ -57,6 +58,9 @@ export class AddProyectoComponent implements OnInit {
             img: this.currentProyecto.img
           })
           console.log(data);
+          if(this.currentProyecto.img !== ''){
+            this.imgProyecto = this.currentProyecto.img; 
+          }
         },
         error: (e) => console.error(e)
       });
@@ -86,6 +90,7 @@ export class AddProyectoComponent implements OnInit {
         next: (res) => {
           console.log(res);
           this.submitted = true;
+          this.imageService.url = '';
           this.router.navigate(['/']);
         },
         error: (e) => console.error(e)
@@ -120,7 +125,17 @@ export class AddProyectoComponent implements OnInit {
   }
 
   updateImage(){
-    this.form.value.img = this.imageService.url;
-    alert("Imagen guardada");
+    this.imgProyecto = this.imageService.url;
+    this.form.value.img = this.imgProyecto;
+    const imagen = new Imagen(this.imgProyecto);
+    this.proyectoService.updatePhoto(this.id, imagen)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          alert("Imagen guardada");
+        },
+        error: (e) => console.error(e)
+      });    
   }
+
 }

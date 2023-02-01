@@ -68,6 +68,10 @@ fa-icon{
 	width: 100%;
 }
 
+.course-preview img{
+	width: 100px;
+}
+
 .botones{
     display: inline;
     position: absolute;
@@ -76,13 +80,22 @@ fa-icon{
 }
 
 .btn {
-	background-color: #2A265F;
-	border: 0;
-	border-radius: 50px;
-	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	border: 1px solid #495579;
+    background-color: #495579;
+	border-radius: 20px;
 	color: #fff;
 	font-size: 16px;
-	padding: 12px 25px;	
 	letter-spacing: 1px;
     margin-right: 10px;
+	transition: transform 80ms ease-in;
+}
+
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:hover {
+    background-color: #263159;
+	outline: none;
 }

@@ -1,7 +1,12 @@
 .cuadro{
     background-color: #f8f9fa;
     height: 200px;
-    border-radius: 10px;
+    background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+    padding: 10px;
+    height: auto;
 }
 
 .social-media-banner
@@ -13,6 +18,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .social-media-banner a img{
@@ -21,7 +27,7 @@
 
 .social-media-banner a {
     color:#fff;
-    background: #DB6E82;
+    background: #263159;
     border-radius:4px;
     text-align:center;
     text-decoration:none;
@@ -40,13 +46,21 @@
   }
   
 .social-media-banner a:hover {
-    background: #ef92a3;
+    background: #495579;
 }
 
 /* pop-up text */
 
+h4 {
+    opacity: 0.6;
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 30px;
+}
+
 .social-media-banner a span {
-    color:#666;
+    color:white;
     position:absolute;
     font-family:sans-serif;
     bottom:0;
@@ -56,7 +70,7 @@
     z-index:-1;
     font-size:14px;
     border-radius:2px;
-    background:#fff;
+    background:#20262E;
     visibility:hidden;
     opacity:0;
     -o-transition:all .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);

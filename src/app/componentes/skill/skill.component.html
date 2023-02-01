@@ -1,5 +1,7 @@
 <h2 class="p-3">Skill
-    <fa-icon routerLink="/skill/{{personaId}}/add" *ngIf="isLogged" class="icono p-2" [icon]="faPlus"></fa-icon>
+    <a class="btn" routerLink="/skill/{{personaId}}/add" *ngIf="isLogged">
+        <img src="../../../assets/img/icon-add.svg" alt="">
+    </a>
 </h2>
 <div class="contenedor">
     <app-skill-item    

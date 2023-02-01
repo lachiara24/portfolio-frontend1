@@ -94,7 +94,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
        this.formRegister.value.password);
     this.authService.newUser(this.nuevoUsuario).subscribe(data => {
       console.log(data);
-      this.renderer2.removeClass(this.container.nativeElement, 'right-panel-active');
+      alert("Usuario creado con exito!")
+      window.location.reload();
     })
   }
 

@@ -24,7 +24,7 @@ export class AddSkillComponent implements OnInit {
     private skillService: SkillService,
     private route: ActivatedRoute,
     private router: Router,
-    private imageService: ImageService) {}
+    public imageService: ImageService) {}
 
   ngOnInit(): void {
     this.form = this.fb.group(

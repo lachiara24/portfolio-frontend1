@@ -1,6 +1,7 @@
 <div class="course">
     <div class="course-preview">
-        <img src="{{item.img}}" alt="">
+        <img *ngIf="item.img !== ''" src="{{item.img}}" alt="">
+        <img *ngIf="item.img === ''" src="../../../assets/img/icon-code.svg" alt="">
     </div>
     <div class="course-info">
         
@@ -13,10 +14,10 @@
         </div>
         <div *ngIf="isLogged" class="botones">
             <button routerLink="/skill/{{item.id}}" class="btn">
-                <fa-icon class="icono" [icon]="faPenToSquare" ></fa-icon>
+                <img src="../../../assets/img/icon-edit.svg" alt="">
             </button>
             <button (click)="onDelete(item)" class="btn">
-                <fa-icon class="icono" [icon]="faWindowClose" ></fa-icon>  
+                <img src="../../../assets/img/icon-trash.svg" alt="">
             </button>
         </div>
         

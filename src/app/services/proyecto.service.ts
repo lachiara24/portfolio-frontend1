@@ -29,6 +29,10 @@ export class ProyectoService {
     return this.http.put(`${baseUrl}/proyecto/${id}`, data);
   }
 
+  updatePhoto(id: any, data: any): Observable<any> {
+    return this.http.put(`${baseUrl}/proyecto/${id}/photo`, data);
+  }
+
   delete(personaId: any, id: any): Observable<any> {
     return this.http.delete(`${baseUrl}/${personaId}/proyecto/${id}`);
   }

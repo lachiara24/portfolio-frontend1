@@ -10,8 +10,8 @@
 </div> -->
 
 <div class="card">
-    <img class="card-img-top" src="{{proyecto.img}}" alt="Card image cap">
-    
+    <img class="card-img-top" *ngIf="proyecto.img !== ''" src="{{proyecto.img}}" alt="Card image cap">
+    <img class="card-img-top" *ngIf="proyecto.img === ''" src="../../../assets/img/default-img.png" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{proyecto.nombre}}</h5>
       <p class="card-text">{{proyecto.descripcion}}</p>
@@ -21,8 +21,12 @@
       <a href="{{proyecto.repo}}" class="card-link underline">Git Hub</a>
     </div>
     <div class="overlay iconos" *ngIf="isLogged">
-        <fa-icon class="icono p-2" [icon]="faPenToSquare" routerLink="/proyecto/{{proyecto.id}}"></fa-icon>
-        <fa-icon class="icono p-2" [icon]="faWindowClose" (click)="onDelete(proyecto)"></fa-icon>
+        <a routerLink="/proyecto/{{proyecto.id}}">
+          <img src="../../../assets/img/icon-edit.svg" alt="">
+        </a>
+        <a href="" (click)="onDelete(proyecto)">
+          <img src="../../../assets/img/icon-trash.svg" alt="">
+        </a>
     </div>
   </div>
   

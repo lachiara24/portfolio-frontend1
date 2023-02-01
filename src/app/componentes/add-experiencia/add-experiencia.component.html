@@ -1,67 +1,83 @@
-<div class="submit-form">
+<div class="container">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label>Empresa</label>
-        <input
-          type="text"
-          formControlName="empresa"
-          class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['empresa'].errors }"
-        />
-        <div *ngIf="submitted && f['empresa'].errors" class="invalid-feedback">
-          <div *ngIf="f['empresa'].errors['required']">Este campo es obligatorio</div>
+      <div class="row form-container">
+        <!-- inicio col -->
+        <div class="col cont">
+          <div class="form-group">
+            <label>Empresa</label>
+            <input
+              type="text"
+              formControlName="empresa"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['empresa'].errors }"
+            />
+            <div *ngIf="submitted && f['empresa'].errors" class="invalid-feedback">
+              <div *ngIf="f['empresa'].errors['required']">Este campo es obligatorio</div>
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <label>Puesto</label>
+            <input
+              type="text"
+              formControlName="puesto"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['puesto'].errors }"
+            />
+            <div *ngIf="submitted && f['puesto'].errors" class="invalid-feedback">
+              <div *ngIf="f['puesto'].errors['required']">Este campo es obligatorio</div>
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label>Ubicacion</label>
+            <input
+              type="text"
+              formControlName="ubicacion"
+              class="form-control"
+            />
+          </div>
         </div>
-      </div>
-  
-      <div class="form-group">
-        <label>Puesto</label>
-        <input
-          type="text"
-          formControlName="puesto"
-          class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['puesto'].errors }"
-        />
-        <div *ngIf="submitted && f['puesto'].errors" class="invalid-feedback">
-          <div *ngIf="f['puesto'].errors['required']">Este campo es obligatorio</div>
+        <!-- fin col  -->
+
+        <!-- inicio col -->
+        <div class="col cont">
+          <div class="form-group">
+            <label>Fecha de inicio</label>
+            <input
+              type="date"
+              formControlName="fechaInicio"
+              class="form-control"
+            />
+          </div>
+    
+          <div class="form-group">
+            <label>Fecha de finalización</label>
+            <input
+              type="date"
+              formControlName="fechaFin"
+              class="form-control"
+            />
+          </div>
+
+
+          <div class="botones form-group">
+            <button type="submit" class="btn">Guardar</button>
+            <button
+              type="button"
+              routerLink="/"
+              class="btn"
+            >
+              Cancelar
+            </button>
+          </div>
         </div>
+        <!-- fin col -->
       </div>
+      
 
-      <div class="form-group">
-        <label>Ubicacion</label>
-        <input
-          type="text"
-          formControlName="ubicacion"
-          class="form-control"
-        />
-      </div>
-
-      <div class="form-group">
-        <label>Fecha de inicio</label>
-        <input
-          type="date"
-          formControlName="fechaInicio"
-          class="form-control"
-        />
-      </div>
-
-      <div class="form-group">
-        <label>Fecha de finalización</label>
-        <input
-          type="date"
-          formControlName="fechaFin"
-          class="form-control"
-        />
-      </div>
+      
   
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Guardar</button>
-        <button
-          type="button"
-          (click)="onReset()"
-          class="btn btn-warning float-right"
-        >
-          Resetear
-        </button>
-      </div>
+      
     </form>
   </div>
