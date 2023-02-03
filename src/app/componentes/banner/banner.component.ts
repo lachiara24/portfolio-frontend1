@@ -43,7 +43,7 @@ export class BannerComponent{
     this.personaService.updatePhotos(this.usuario.id, photos)
       .subscribe({
         next: (res) => {
-          console.log(res);
+          //console.log(res);
         },
         error: (e) => console.error(e)
       });
@@ -68,7 +68,7 @@ export class BannerComponent{
     this.personaService.updatePhotos(this.usuario.id, photos)
       .subscribe({
         next: (res) => {
-          console.log(res);
+          //console.log(res);
         },
         error: (e) => console.error(e)
       });

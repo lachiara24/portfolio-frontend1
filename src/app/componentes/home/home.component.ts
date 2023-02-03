@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
       this.isLogged = true;
       this.personaService.getPersona().subscribe((data:any) => {
         this.usuario = data;
-        console.log(this.usuario);
+        
       });
     }else{
       this.personaService.getPersonaById(this.usuario.id)

@@ -107,7 +107,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     }
 
     this.loginUsuario = new LoginUsuario(this.formLogin.value.nombreUsuario, this.formLogin.value.password);
-    console.log(this.loginUsuario);
+    //console.log(this.loginUsuario);
     this.authService.login(this.loginUsuario).subscribe(data => {
       // console.log(data);
       this.isLogged = true;

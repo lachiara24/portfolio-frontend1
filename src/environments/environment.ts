@@ -9,6 +9,7 @@ export const environment = {
     messagingSenderId: '706063732460',
   },
     production: false,
-    URL: 'http://localhost:8080/api/'
+    //URL: 'http://localhost:8080/api/'
+    URL: 'https://backendportfolio-3ayv.onrender.com/api/'
     // URL: 'http:/// // PRODUCTION_URL
 }

@@ -42,7 +42,7 @@ export class SkillComponent implements OnInit {
     this.skillService.delete(this.personaId, item.id)
       .subscribe({
         next: (res) => {
-          console.log(res);
+          //console.log(res);
           window.location.reload();
         },
         error: (e) => console.error(e)

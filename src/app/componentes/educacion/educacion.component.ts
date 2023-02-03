@@ -25,7 +25,7 @@ export class EducacionComponent implements OnInit {
     if(this.tokenService.getToken()){
       this.isLogged = true;
       this.personaId = this.tokenService.getPersonaId();
-      console.log(this.personaId);
+      //console.log(this.personaId);
     }   
     this.retrieveEducacions();
   }
@@ -45,7 +45,7 @@ export class EducacionComponent implements OnInit {
     this.educacionService.delete(this.personaId, item.id)
       .subscribe({
         next: (res) => {
-          console.log(res);
+          //console.log(res);
           window.location.reload();
         },
         error: (e) => console.error(e)

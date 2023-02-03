@@ -55,7 +55,7 @@ export class PerfilComponent implements OnInit{
             github: this.currentPersona.github,
             linkedin: this.currentPersona.linkedin,
           })
-          console.log(data);
+          //console.log(data);
           this.imgPerfil = this.currentPersona.imgPerfil;
           this.imgPortada = this.currentPersona.imgPortada;
         },
@@ -82,7 +82,7 @@ export class PerfilComponent implements OnInit{
     this.personaService.update(this.personaId, this.form.value)
       .subscribe({
         next: (res) => {
-          console.log(res);
+          //console.log(res);
           this.submitted = true;
           this.router.navigate(['/']);
         },

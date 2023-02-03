@@ -44,7 +44,7 @@ export class ExperienciaComponent implements OnInit{
     this.experienciaService.delete(this.personaId, item.id)
       .subscribe({
         next: (res) => {
-          console.log(res);
+          //console.log(res);
           window.location.reload();
         },
         error: (e) => console.error(e)
