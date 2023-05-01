@@ -192,10 +192,9 @@
           <div class="profile-header-info">
              <h4 class="m-t-10 m-b-5">{{usuario.nombre}} {{usuario.apellido}}</h4>
              <p class="m-b-10">{{usuario.profesion}}</p>
-             <a routerLink="/perfil/{{usuario.id}}" *ngIf="isLogged" class="btn">Edit Profile</a>
-             <a (click)="updatePerfil()" *ngIf="isLogged" class="btn">Save profile photo</a>
-             <a (click)="updatePortada()"  *ngIf="isLogged" class="btn">Save portrait</a>
+             
           </div>
+          
           <!-- END profile-header-info -->
        </div>
        <!-- END profile-header-content -->
@@ -203,6 +202,13 @@
 
        <!-- END profile-header-tab -->
        
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <a routerLink="/perfil/{{usuario.id}}" *ngIf="isLogged" class="btn">Edit Profile</a>
+       <a (click)="updatePerfil()" *ngIf="isLogged" class="btn">Save profile photo</a>
+       <a (click)="updatePortada()"  *ngIf="isLogged" class="btn">Save portrait</a>
+      </div>
     </div>
  </div>
 
