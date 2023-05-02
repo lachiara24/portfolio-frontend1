@@ -11,6 +11,7 @@ import { Experiencia } from 'src/app/models/Experiencia';
 })
 export class AddExperienciaComponent implements OnInit {
   form: FormGroup;
+  titulo = 'Agregar';
   submitted = false;
   personaId: number = 1;
   id: any;
@@ -37,6 +38,7 @@ export class AddExperienciaComponent implements OnInit {
     if (this.id != undefined) {
       this.getExperiencia(this.id);   
       this.addMode = false;
+      this.titulo = 'Editar';
     }
   }
 

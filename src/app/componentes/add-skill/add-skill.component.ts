@@ -13,6 +13,7 @@ import { Imagen } from 'src/app/models/Image';
 })
 export class AddSkillComponent implements OnInit {
   form: FormGroup;
+  titulo = 'Agregar';
   submitted = false;
   personaId: number = 1;
   id: any;
@@ -39,6 +40,7 @@ export class AddSkillComponent implements OnInit {
     if (this.id != undefined) {
       this.getSkill(this.id);   
       this.addMode = false;
+      this.titulo = 'Editar';
     }
   }
 

@@ -146,7 +146,7 @@
 <!-- SI ESTA LOGUEADO -->
 <ng-template #imagen>
   <div class="profile">
-    <div class="profile-header">
+    <div class="container-fluid profile-header">
        <!-- BEGIN profile-header-cover -->
       <div *ngIf="!changePortadaImage" class="profile-header-cover"
        [ngStyle]="{'background-image': usuario.imgPortada !== null ? 'url('+ usuario.imgPortada + ')' : 
@@ -204,10 +204,10 @@
        
     </div>
     <div class="row">
-      <div class="col-12">
-        <a routerLink="/perfil/{{usuario.id}}" *ngIf="isLogged" class="btn">Edit Profile</a>
-       <a (click)="updatePerfil()" *ngIf="isLogged" class="btn">Save profile photo</a>
-       <a (click)="updatePortada()"  *ngIf="isLogged" class="btn">Save portrait</a>
+      <div class="m-x col-12">
+        <a routerLink="/perfil/{{usuario.id}}" *ngIf="isLogged" class="btn">Editar perfil</a>
+       <a (click)="updatePerfil()" *ngIf="isLogged" class="btn">Guardar foto de perfil</a>
+       <a (click)="updatePortada()"  *ngIf="isLogged" class="btn">Guardar portada</a>
       </div>
     </div>
  </div>

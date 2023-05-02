@@ -1,10 +1,10 @@
-<div class="container">
-  <div class="form-container">
+<div class="container-lg container-sm">
+ 
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <h1 style="display: flex; justify-content: center;">Editar perfil</h1>
-      <div class="row form-container">
+      <h1 class="m-3" style="display: flex; justify-content: center;">Editar perfil</h1>
+      <div class="">
 
-        <div class="col cont">
+        <div class="col-sm-12">
           <!-- nombre -->
           <div class="form-group">
             <label for="">Nombre</label>
@@ -56,7 +56,6 @@
           </div>
           
         
-        <div class="col cont">
           <!-- git hub -->
           <div class="form-group">
             <label for="">Git Hub</label>
@@ -91,7 +90,6 @@
           
 
           
-        </div>
       </div>
 
         
@@ -101,11 +99,11 @@
       
   
       <div class="botones">
-        <button type="submit" class="btn">Guardar</button>
+        <button type="submit" class="btn btn-lg">Guardar</button>
         <button
           type="button"
           routerLink="/"
-          class="btn">
+          class="btn btn-lg">
           Cancelar
         </button>
       </div>
@@ -113,7 +111,6 @@
 
     </form>
   </div>
-</div>
 
   
 

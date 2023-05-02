@@ -1,7 +1,7 @@
 <div class="container">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-
-      <div class="row form-container">
+      <h2 class="m-3">{{titulo}} proyecto</h2>
+      <div class="">
         <!-- inicio col -->
         <div *ngIf="!addMode" class="col cont">
           <div class="form-img">
@@ -40,7 +40,7 @@
         <!-- fin col -->
 
         <!-- inicio col -->
-        <div class="col cont">
+        <div class="col-sm-12">
           <div class="form-group">
             <label>Nombre</label>
             <input
@@ -69,11 +69,6 @@
               <div *ngIf="f['descripcion'].errors['required']">Este campo es obligatorio</div>
             </div>
           </div>
-        </div>
-        <!-- fin col -->
-
-        <!-- inicio col -->
-        <div class="col cont">
           <div class="form-group">
             <label>Link demo</label>
             <input

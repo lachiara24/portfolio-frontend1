@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container-lg container-sm">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="row form-container">
-        <!-- inicio col -->
-        <div class="col-sm-12 cont">
+      <h2 class="m-3">{{titulo}} educación</h2>
+      <div class="col-sm-12">
+        
           <!-- institucion -->
         <div class="form-group">
           <label>Institucion</label>
@@ -31,11 +31,8 @@
           </div>
         </div>
 
-        </div>
-        <!-- fin col -->
 
-        <!-- inicio col -->
-        <div class="col-sm-12 cont">
+        
           <!-- fecha de inicio -->
         <div class="form-group">
           <label>Fecha de inicio</label>
@@ -55,15 +52,13 @@
           />
         </div>
         </div>
-        <!-- fin col -->
-      </div>
   
-        <div class="botones">
-          <button type="submit" class="btn">Guardar</button>
+        <div class="m-3 col-sm-12">
+          <button type="submit" class="btn btn-lg">Guardar</button>
           <button
             type="button"
             routerLink="/"
-            class="btn"
+            class="btn btn-lg"
           >
             Cancelar
           </button>

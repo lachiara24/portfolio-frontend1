@@ -11,6 +11,7 @@ import { Educacion } from 'src/app/models/Educacion';
 })
 export class AddEducacionComponent implements OnInit{
   addMode = true;
+  titulo = 'Agregar';
 
   form: FormGroup;
   submitted = false;
@@ -39,6 +40,7 @@ export class AddEducacionComponent implements OnInit{
     if (this.id != undefined) {
       this.getEducacion(this.id);   
       this.addMode = false;
+      this.titulo = 'Editar';
     }
     
   }

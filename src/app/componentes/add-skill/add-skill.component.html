@@ -1,8 +1,9 @@
-<div class="container">
+<div class="container-lg container-sm">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="row form-container">
+      <h2 class="m-3">{{titulo}} skill</h2>
+      <div class="">
         <!-- inicio col -->
-        <div *ngIf="!addMode" class="col cont">
+        <div *ngIf="!addMode" class="col-sm-12">
           <div class="form-img">
             <!-- cambiar foto de Skill -->
            <div class="perfil-foto">
@@ -40,7 +41,7 @@
 
 
         <!-- inicio col -->
-        <div class="col cont">
+        <div class="col-sm-12">
           <div class="form-group">
             <label>Nombre</label>
             <input
@@ -74,11 +75,11 @@
       
   
       <div class="botones">
-        <button type="submit" class="btn">Guardar</button>
+        <button type="submit" class="btn btn-lg">Guardar</button>
         <button
           type="button"
           routerLink="/"
-          class="btn"
+          class="btn btn-lg"
         >
           Cancelar
         </button>

@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container-lg container-sm">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="row form-container">
+        <h2 class="m-3">{{titulo}} experiencia</h2>
         <!-- inicio col -->
-        <div class="col cont">
+        <div class="col-sm-12">
           <div class="form-group">
             <label>Empresa</label>
             <input
@@ -37,11 +37,7 @@
               class="form-control"
             />
           </div>
-        </div>
-        <!-- fin col  -->
 
-        <!-- inicio col -->
-        <div class="col cont">
           <div class="form-group">
             <label>Fecha de inicio</label>
             <input
@@ -62,18 +58,17 @@
 
 
           <div class="botones form-group">
-            <button type="submit" class="btn">Guardar</button>
+            <button type="submit" class="btn btn-lg">Guardar</button>
             <button
               type="button"
               routerLink="/"
-              class="btn"
+              class="btn btn-lg"
             >
               Cancelar
             </button>
           </div>
         </div>
         <!-- fin col -->
-      </div>
       
 
       

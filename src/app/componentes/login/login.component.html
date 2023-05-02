@@ -1,12 +1,13 @@
 
 
 
-<div class="container" #container>
-	<div class="form-container sign-in-container">
+<div class="container-fluid" #container>
+	<div class="sign-in-container">
 		<form [formGroup]="formLogin" (ngSubmit)="login()">
 			<h1>Iniciar sesión</h1>
       <br>
-      <input
+      <div class="container-sm">
+        <input
           type="text"
           formControlName="nombreUsuario"
           placeholder="Nombre de usuario"
@@ -25,16 +26,19 @@
       <div *ngIf="submitted && f2['password'].errors" class="invalid-feedback">
         <div *ngIf="f2['password'].errors['required']">Este campo es obligatorio</div>
       </div>
+      <button>Iniciar sesión</button>
+      </div>
+      
 
-			<button>Iniciar sesión</button>
+			
 		</form>
 	</div>
-	<div class="form-container sign-up-container">
+	<div class="sign-up-container">
 		<form [formGroup]="formRegister" (ngSubmit)="register()">
 			<h1>Crear usuario</h1>
       <br>
-
-      <input
+      <div class="container-sm">
+        <input
         type="text"
         formControlName="nombre"
         placeholder="Nombre"
@@ -76,6 +80,9 @@
 
 
 			<button>Registrarse</button>
+      </div>
+
+      
 		</form>
 	</div>
 	<div class="overlay-container">

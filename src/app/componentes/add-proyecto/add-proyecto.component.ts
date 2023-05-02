@@ -14,6 +14,7 @@ import { Imagen } from 'src/app/models/Image';
 })
 export class AddProyectoComponent implements OnInit {
   form: FormGroup;
+  titulo = 'Agregar';
   submitted = false;
   personaId: number = 1;
   id: any;
@@ -42,6 +43,7 @@ export class AddProyectoComponent implements OnInit {
     if (this.id != undefined) {
       this.getProyecto(this.id);   
       this.addMode = false;
+      this.titulo = 'Editar';
     }
   }
 
